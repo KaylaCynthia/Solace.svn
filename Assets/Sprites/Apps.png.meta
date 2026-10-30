@@ -304,10 +304,10 @@ TextureImporter:
       name: Apps_0
       rect:
         serializedVersion: 2
-        x: 82
-        y: 1172
-        width: 193
-        height: 187
+        x: 0
+        y: 363
+        width: 363
+        height: 363
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -323,79 +323,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apps_1
-      rect:
-        serializedVersion: 2
-        x: 541
-        y: 1175
-        width: 207
-        height: 207
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d14266135fdf394c0800000000000000
-      internalID: -4281799591161617379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_2
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 1108
-        width: 21
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2986402c090b4a0e0800000000000000
-      internalID: -2259486977256298350
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_3
-      rect:
-        serializedVersion: 2
-        x: 155
-        y: 1109
-        width: 8
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 167e559df1694f320800000000000000
-      internalID: 2590860749179316065
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Apps_4
       rect:
         serializedVersion: 2
-        x: 165
-        y: 1108
-        width: 21
-        height: 22
+        x: 0
+        y: 0
+        width: 363
+        height: 363
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +348,10 @@ TextureImporter:
       name: Apps_5
       rect:
         serializedVersion: 2
-        x: 186
-        y: 1108
-        width: 21
-        height: 22
+        x: 363
+        y: 0
+        width: 363
+        height: 363
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,10 +370,10 @@ TextureImporter:
       name: Apps_6
       rect:
         serializedVersion: 2
-        x: 208
-        y: 1100
-        width: 22
-        height: 30
+        x: 726
+        y: 0
+        width: 363
+        height: 363
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,1013 +389,67 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apps_7
+      name: Apps_1
       rect:
         serializedVersion: 2
-        x: 579
-        y: 1111
-        width: 24
-        height: 31
+        x: 363
+        y: 363
+        width: 363
+        height: 363
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a82491e364919e8c0800000000000000
-      internalID: -3969613807070133622
+      spriteID: 448c92798808c8b4793d12ff7a1e44e0
+      internalID: -4281799591161617379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apps_8
-      rect:
-        serializedVersion: 2
-        x: 603
-        y: 1110
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8e127c9e48c22a4d0800000000000000
-      internalID: -3124886242072256024
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_9
-      rect:
-        serializedVersion: 2
-        x: 624
-        y: 1110
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 087ef74978f250f20800000000000000
-      internalID: 3388166554024667008
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_10
-      rect:
-        serializedVersion: 2
-        x: 647
-        y: 1110
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6cde4b1f38915e1f0800000000000000
-      internalID: -1016378086415602234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_11
-      rect:
-        serializedVersion: 2
-        x: 672
-        y: 1111
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 448f3d95077cd50c0800000000000000
-      internalID: -4585289560235968444
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_12
-      rect:
-        serializedVersion: 2
-        x: 693
-        y: 1110
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ba993f8c0e1849ae0800000000000000
-      internalID: -1543465969837172309
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_13
-      rect:
-        serializedVersion: 2
-        x: 713
-        y: 1111
-        width: 13
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 253be1e76ad8c1040800000000000000
-      internalID: 4619723063995315026
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_14
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 820
-        width: 226
-        height: 153
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c0e22db252171a070800000000000000
-      internalID: 8115892407961267724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_15
-      rect:
-        serializedVersion: 2
-        x: 565
-        y: 810
-        width: 240
-        height: 181
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f3c3d97a7d6297a20800000000000000
-      internalID: 3060520129446886463
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_18
-      rect:
-        serializedVersion: 2
-        x: 109
-        y: 775
-        width: 19
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b058b710b10b02cf0800000000000000
-      internalID: -279029546861492981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_19
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 797
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1cf4e1ad25e35dac0800000000000000
-      internalID: -3831087382441078847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_20
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 775
-        width: 25
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d87360ea816a32d00800000000000000
-      internalID: 946782971607005069
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_21
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 774
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8bdfd0648960eca00800000000000000
-      internalID: 778567036661792184
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_22
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 775
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 67250005d56b7f5b0800000000000000
-      internalID: -5334594721706651018
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_23
-      rect:
-        serializedVersion: 2
-        x: 186
-        y: 774
-        width: 17
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dba73ae6223f7f8b0800000000000000
-      internalID: -5118355122272634179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_24
-      rect:
-        serializedVersion: 2
-        x: 205
-        y: 775
-        width: 8
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 14feadad19242a260800000000000000
-      internalID: 7107316356153536321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_25
-      rect:
-        serializedVersion: 2
-        x: 216
-        y: 774
-        width: 17
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 95125e8b30ad60190800000000000000
-      internalID: -7996464378827955879
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_26
-      rect:
-        serializedVersion: 2
-        x: 234
-        y: 774
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 87a665abe3c65f8e0800000000000000
-      internalID: -1660301870946162056
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_27
-      rect:
-        serializedVersion: 2
-        x: 588
-        y: 751
-        width: 19
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 28d759ca0976b0c70800000000000000
-      internalID: 8938351756515310978
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_28
-      rect:
-        serializedVersion: 2
-        x: 627
-        y: 751
-        width: 20
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e539d7e9fab9b9a10800000000000000
-      internalID: 1917297244956889950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_29
+      name: Apps_2
       rect:
         serializedVersion: 2
         x: 726
-        y: 750
-        width: 22
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a8522f9a9104da4e0800000000000000
-      internalID: -1968846983121459830
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_30
-      rect:
-        serializedVersion: 2
-        x: 608
-        y: 750
-        width: 17
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5cb2aafaf8fefe5f0800000000000000
-      internalID: -725097614576833595
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_31
-      rect:
-        serializedVersion: 2
-        x: 649
-        y: 750
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7a70dcec1ce59060800000000000000
-      internalID: 6959728408147294847
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_32
-      rect:
-        serializedVersion: 2
-        x: 671
-        y: 750
-        width: 18
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8dd547d385ce96420800000000000000
-      internalID: 2623888121652338136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_33
-      rect:
-        serializedVersion: 2
-        x: 690
-        y: 750
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 29b579ea2cbaa5e30800000000000000
-      internalID: 4493092430896651154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_34
-      rect:
-        serializedVersion: 2
-        x: 713
-        y: 751
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1a4b26d61afa77bd0800000000000000
-      internalID: -2632442349314984799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_35
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 472
-        width: 222
-        height: 222
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8fc0f19aa21a46d10800000000000000
-      internalID: 2117994929369058552
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_36
-      rect:
-        serializedVersion: 2
-        x: 547
-        y: 424
-        width: 258
-        height: 249
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d517607c78d2ac430800000000000000
-      internalID: 3803902896450728285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_37
-      rect:
-        serializedVersion: 2
-        x: 138
-        y: 418
-        width: 36
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9e6b23da19d29f6a0800000000000000
-      internalID: -6415046090513271063
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_38
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 417
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 823ee2464e6f648a0800000000000000
-      internalID: -6321093566174141656
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_39
-      rect:
-        serializedVersion: 2
-        x: 198
-        y: 418
-        width: 13
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 20cefdffef8ebef70800000000000000
-      internalID: 9217717244256054274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_40
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 418
-        width: 21
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0fac08aa126a8c4e0800000000000000
-      internalID: -1961134974195152144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_41
-      rect:
-        serializedVersion: 2
-        x: 612
-        y: 362
-        width: 21
-        height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7e2290e598e973c20800000000000000
-      internalID: 3186189574213280487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_42
-      rect:
-        serializedVersion: 2
-        x: 652
         y: 363
-        width: 13
-        height: 27
+        width: 363
+        height: 363
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 626d6eecf204d7e90800000000000000
-      internalID: -7026389269549230554
+      spriteID: b2002b38a05f1f84b8a96b52e79cacc6
+      internalID: -2259486977256298350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Apps_43
+      name: Apps_3
       rect:
         serializedVersion: 2
-        x: 664
+        x: 1089
         y: 363
-        width: 12
-        height: 27
+        width: 363
+        height: 363
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 34cc2ea48f309d610800000000000000
-      internalID: 1646351503723777091
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_44
-      rect:
-        serializedVersion: 2
-        x: 676
-        y: 385
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2022a27d2938ddd90800000000000000
-      internalID: -7071351173203484158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_45
-      rect:
-        serializedVersion: 2
-        x: 632
-        y: 362
-        width: 21
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7d4a3c075269e7740800000000000000
-      internalID: 5151720111308252375
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_46
-      rect:
-        serializedVersion: 2
-        x: 677
-        y: 363
-        width: 8
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c091129f7fc2ff710800000000000000
-      internalID: 1729150225481799948
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_47
-      rect:
-        serializedVersion: 2
-        x: 689
-        y: 363
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 048a22a57b4601a80800000000000000
-      internalID: -8498181758194112448
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_48
-      rect:
-        serializedVersion: 2
-        x: 710
-        y: 355
-        width: 22
-        height: 29
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fc7adb124247e13f0800000000000000
-      internalID: -928176774658021425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_49
-      rect:
-        serializedVersion: 2
-        x: 734
-        y: 362
-        width: 17
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 3e2822c6aed2e5430800000000000000
-      internalID: 3773504022642852579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_50
-      rect:
-        serializedVersion: 2
-        x: 78
-        y: 131
-        width: 244
-        height: 210
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1d330915d445ce3b0800000000000000
-      internalID: -5481913955359116335
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_51
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 80
-        width: 22
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 17106ce8b95e330d0800000000000000
-      internalID: -3444156833730264719
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_52
-      rect:
-        serializedVersion: 2
-        x: 162
-        y: 79
-        width: 22
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9073b0240d0b5a650800000000000000
-      internalID: 6243590866926778121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_53
-      rect:
-        serializedVersion: 2
-        x: 187
-        y: 80
-        width: 20
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e295e81c9e2edf1d0800000000000000
-      internalID: -3315244257072228050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Apps_54
-      rect:
-        serializedVersion: 2
-        x: 209
-        y: 80
-        width: 21
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 78ca34312e6e51f40800000000000000
-      internalID: 5698714762167430279
+      spriteID: 925b917dfe6bb7c49bcdd675de27ad8b
+      internalID: 2590860749179316065
       vertices: []
       indices: 
       edges: []
@@ -1478,63 +466,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":2.0},"gridSpriteSize":{"x":363.0,"y":363.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Apps_0: -3529532808781523672
       Apps_1: -4281799591161617379
-      Apps_10: -1016378086415602234
-      Apps_11: -4585289560235968444
-      Apps_12: -1543465969837172309
-      Apps_13: 4619723063995315026
-      Apps_14: 8115892407961267724
-      Apps_15: 3060520129446886463
-      Apps_16: -6987347723997268472
-      Apps_17: 8800806612721956953
-      Apps_18: -279029546861492981
-      Apps_19: -3831087382441078847
       Apps_2: -2259486977256298350
-      Apps_20: 946782971607005069
-      Apps_21: 778567036661792184
-      Apps_22: -5334594721706651018
-      Apps_23: -5118355122272634179
-      Apps_24: 7107316356153536321
-      Apps_25: -7996464378827955879
-      Apps_26: -1660301870946162056
-      Apps_27: 8938351756515310978
-      Apps_28: 1917297244956889950
-      Apps_29: -1968846983121459830
       Apps_3: 2590860749179316065
-      Apps_30: -725097614576833595
-      Apps_31: 6959728408147294847
-      Apps_32: 2623888121652338136
-      Apps_33: 4493092430896651154
-      Apps_34: -2632442349314984799
-      Apps_35: 2117994929369058552
-      Apps_36: 3803902896450728285
-      Apps_37: -6415046090513271063
-      Apps_38: -6321093566174141656
-      Apps_39: 9217717244256054274
       Apps_4: 5966826984969885298
-      Apps_40: -1961134974195152144
-      Apps_41: 3186189574213280487
-      Apps_42: -7026389269549230554
-      Apps_43: 1646351503723777091
-      Apps_44: -7071351173203484158
-      Apps_45: 5151720111308252375
-      Apps_46: 1729150225481799948
-      Apps_47: -8498181758194112448
-      Apps_48: -928176774658021425
-      Apps_49: 3773504022642852579
       Apps_5: 5726967569802887600
-      Apps_50: -5481913955359116335
-      Apps_51: -3444156833730264719
-      Apps_52: 6243590866926778121
-      Apps_53: -3315244257072228050
-      Apps_54: 5698714762167430279
       Apps_6: 4890233921709014632
-      Apps_7: -3969613807070133622
-      Apps_8: -3124886242072256024
-      Apps_9: 3388166554024667008
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

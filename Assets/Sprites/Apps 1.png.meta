@@ -1,0 +1,484 @@
+fileFormatVersion: 2
+guid: 907e40daba4b0bb40af810946e257c13
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3529532808781523672
+    second: Apps_0
+  - first:
+      213: -4281799591161617379
+    second: Apps_1
+  - first:
+      213: -2259486977256298350
+    second: Apps_2
+  - first:
+      213: 2590860749179316065
+    second: Apps_3
+  - first:
+      213: 5966826984969885298
+    second: Apps_4
+  - first:
+      213: 5726967569802887600
+    second: Apps_5
+  - first:
+      213: 4890233921709014632
+    second: Apps_6
+  - first:
+      213: -3969613807070133622
+    second: Apps_7
+  - first:
+      213: -3124886242072256024
+    second: Apps_8
+  - first:
+      213: 3388166554024667008
+    second: Apps_9
+  - first:
+      213: -1016378086415602234
+    second: Apps_10
+  - first:
+      213: -4585289560235968444
+    second: Apps_11
+  - first:
+      213: -1543465969837172309
+    second: Apps_12
+  - first:
+      213: 4619723063995315026
+    second: Apps_13
+  - first:
+      213: 8115892407961267724
+    second: Apps_14
+  - first:
+      213: 3060520129446886463
+    second: Apps_15
+  - first:
+      213: -6987347723997268472
+    second: Apps_16
+  - first:
+      213: 8800806612721956953
+    second: Apps_17
+  - first:
+      213: -279029546861492981
+    second: Apps_18
+  - first:
+      213: -3831087382441078847
+    second: Apps_19
+  - first:
+      213: 946782971607005069
+    second: Apps_20
+  - first:
+      213: 778567036661792184
+    second: Apps_21
+  - first:
+      213: -5334594721706651018
+    second: Apps_22
+  - first:
+      213: -5118355122272634179
+    second: Apps_23
+  - first:
+      213: 7107316356153536321
+    second: Apps_24
+  - first:
+      213: -7996464378827955879
+    second: Apps_25
+  - first:
+      213: -1660301870946162056
+    second: Apps_26
+  - first:
+      213: 8938351756515310978
+    second: Apps_27
+  - first:
+      213: 1917297244956889950
+    second: Apps_28
+  - first:
+      213: -1968846983121459830
+    second: Apps_29
+  - first:
+      213: -725097614576833595
+    second: Apps_30
+  - first:
+      213: 6959728408147294847
+    second: Apps_31
+  - first:
+      213: 2623888121652338136
+    second: Apps_32
+  - first:
+      213: 4493092430896651154
+    second: Apps_33
+  - first:
+      213: -2632442349314984799
+    second: Apps_34
+  - first:
+      213: 2117994929369058552
+    second: Apps_35
+  - first:
+      213: 3803902896450728285
+    second: Apps_36
+  - first:
+      213: -6415046090513271063
+    second: Apps_37
+  - first:
+      213: -6321093566174141656
+    second: Apps_38
+  - first:
+      213: 9217717244256054274
+    second: Apps_39
+  - first:
+      213: -1961134974195152144
+    second: Apps_40
+  - first:
+      213: 3186189574213280487
+    second: Apps_41
+  - first:
+      213: -7026389269549230554
+    second: Apps_42
+  - first:
+      213: 1646351503723777091
+    second: Apps_43
+  - first:
+      213: -7071351173203484158
+    second: Apps_44
+  - first:
+      213: 5151720111308252375
+    second: Apps_45
+  - first:
+      213: 1729150225481799948
+    second: Apps_46
+  - first:
+      213: -8498181758194112448
+    second: Apps_47
+  - first:
+      213: -928176774658021425
+    second: Apps_48
+  - first:
+      213: 3773504022642852579
+    second: Apps_49
+  - first:
+      213: -5481913955359116335
+    second: Apps_50
+  - first:
+      213: -3444156833730264719
+    second: Apps_51
+  - first:
+      213: 6243590866926778121
+    second: Apps_52
+  - first:
+      213: -3315244257072228050
+    second: Apps_53
+  - first:
+      213: 5698714762167430279
+    second: Apps_54
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Apps_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 363
+        width: 363
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8259d755c94940fc0800000000000000
+      internalID: -3529532808781523672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apps_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 363
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 276585b778d6ec250800000000000000
+      internalID: 5966826984969885298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apps_5
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 0
+        width: 363
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1884679a64a7f40800000000000000
+      internalID: 5726967569802887600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apps_6
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 0
+        width: 363
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ef70c97d99dd340800000000000000
+      internalID: 4890233921709014632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apps_1
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 363
+        width: 363
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 448c92798808c8b4793d12ff7a1e44e0
+      internalID: -4281799591161617379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apps_2
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 363
+        width: 363
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2002b38a05f1f84b8a96b52e79cacc6
+      internalID: -2259486977256298350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Apps_3
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 363
+        width: 363
+        height: 363
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925b917dfe6bb7c49bcdd675de27ad8b
+      internalID: 2590860749179316065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 357a1ba67e4898849b60eca002897b4f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":2.0},"gridSpriteSize":{"x":363.0,"y":363.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      Apps_0: -3529532808781523672
+      Apps_1: -4281799591161617379
+      Apps_2: -2259486977256298350
+      Apps_3: 2590860749179316065
+      Apps_4: 5966826984969885298
+      Apps_5: 5726967569802887600
+      Apps_6: 4890233921709014632
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
