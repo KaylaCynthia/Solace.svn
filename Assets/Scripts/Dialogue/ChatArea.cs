@@ -9,6 +9,7 @@ public class ChatArea : MonoBehaviour
     [SerializeField] private ChatAreaType areaType;
     [SerializeField] private Transform content;
     [SerializeField] private ScrollRect scrollRect;
+    [SerializeField] private Vector4 padding;
     [SerializeField] private RectTransform chatAreaRect;
 
     private float originalChatAreaHeight;
@@ -27,6 +28,7 @@ public class ChatArea : MonoBehaviour
 
     public void Initialize()
     {
+        content.GetComponent<VerticalLayoutGroup>().padding = new RectOffset((int)padding.x, (int)padding.y, (int)padding.z, (int)padding.w);
         SetAsInactive();
     }
 

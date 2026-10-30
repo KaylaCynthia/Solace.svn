@@ -7,7 +7,7 @@ VAR nextBranch = ""
 
 - # speaker: Sunny
 # portrait: sunny_portrait
-hey, heyy!
+hey, <link="test"><mark=\#ffffff55>heyy!</mark></link>
 yep, it's me
 
 # speaker: Player

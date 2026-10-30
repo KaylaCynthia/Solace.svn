@@ -45,7 +45,7 @@ public class ChatUI
         UpdateTypingIndicatorVisibility();
     }
 
-    private void UpdateTypingIndicatorVisibility()
+    private void UpdateTypingIndicatorVisibility(string senderName = null)
     {
         if (isTypingInProgress)
         {
@@ -61,7 +61,8 @@ public class ChatUI
                 {
                     if (currentArea.AreaType == ChatAreaType.Server)
                     {
-                        typingText.text = "Somebody is typing...";
+                        senderName = string.IsNullOrEmpty(senderName) ? "Someone" : senderName;
+                        typingText.text = $"{senderName} is typing...";
                     }
                     else
                     {
@@ -91,12 +92,12 @@ public class ChatUI
         chatAreaManager.SwitchToChatAreaViaButton(areaName);
     }
 
-    public IEnumerator ShowTypingForDuration(float duration, string targetChatArea)
+    public IEnumerator ShowTypingForDuration(float duration, string targetChatArea, string senderName = null)
     {
         currentTypingChatArea = targetChatArea;
         isTypingInProgress = true;
 
-        UpdateTypingIndicatorVisibility();
+        UpdateTypingIndicatorVisibility(senderName);
 
         yield return new WaitForSeconds(duration);
 

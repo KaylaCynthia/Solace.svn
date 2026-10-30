@@ -159,10 +159,10 @@ public class ChatDialogueManager : MonoBehaviour
         dialogueParser.HandleTags(currentStory.currentTags, currentState);
 
         bool isPlayerMessage = currentState.IsPlayerSpeaking;
-        StartCoroutine(DisplayMessage(nextLine, isPlayerMessage));
+        StartCoroutine(DisplayMessage(nextLine, isPlayerMessage, currentState.CurrentSpeaker));
     }
 
-    private IEnumerator DisplayMessage(string message, bool isPlayerMessage)
+    private IEnumerator DisplayMessage(string message, bool isPlayerMessage , string senderName = null)
     {
         currentState.SetWaitingForInput(false);
 
@@ -216,7 +216,7 @@ public class ChatDialogueManager : MonoBehaviour
         {
             if (currentChatArea == currentConversationChatArea)
             {
-                yield return StartCoroutine(chatUI.ShowTypingForDuration(processedMessage.Length / lettersPerSecond, currentConversationChatArea));
+                yield return StartCoroutine(chatUI.ShowTypingForDuration(processedMessage.Length / lettersPerSecond, currentConversationChatArea, senderName));
             }
             else
             {

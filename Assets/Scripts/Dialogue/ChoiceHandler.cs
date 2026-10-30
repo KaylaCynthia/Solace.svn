@@ -4,34 +4,24 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Ink.Runtime;
+using DG.Tweening;
 
 [System.Serializable]
 public class ChoiceHandler
 {
+    [SerializeField] private GameObject chatAreaPanel;
     [SerializeField] private GameObject choicePanel;
     [SerializeField] private Button inputMessageButton;
     [SerializeField] private GameObject[] choiceButtons;
 
     private TextMeshProUGUI[] choicesText;
-    private Animator choicePanelAnimator;
     private TextMeshProUGUI inputMessageText;
     private System.Action<int> onChoiceSelected;
     private List<Choice> currentChoices;
     private string currentChatAreaForChoices;
     private string currentActiveChatArea;
     private bool isInitialized = false;
-    private bool isClosing = false;
-
-    private const string STAY_CLOSED_TRIGGER = "Stay_Closed";
-    private const string SHOW_CHOICE1_TRIGGER = "Show_Choice1";
-    private const string SHOW_CHOICE2_TRIGGER = "Show_Choice2";
-    private const string SHOW_CHOICE3_TRIGGER = "Show_Choice3";
-    private const string CLOSE_CHOICE1_TRIGGER = "Close_Choice1";
-    private const string CLOSE_CHOICE2_TRIGGER = "Close_Choice2";
-    private const string CLOSE_CHOICE3_TRIGGER = "Close_Choice3";
-    private const string IS_OPEN_BOOL = "IsOpen";
-
-    public bool IsChoicePanelOpen => choicePanelAnimator != null && choicePanelAnimator.GetBool(IS_OPEN_BOOL);
+    private bool isChoicesOpen = false;
 
     public void Initialize(System.Action<int> choiceCallback, ChatUI chatUI)
     {
@@ -42,13 +32,6 @@ public class ChoiceHandler
         if (choicePanel == null)
         {
             Debug.LogError("ChoicePanel is not assigned in ChoiceHandler!");
-            return;
-        }
-
-        choicePanelAnimator = choicePanel.GetComponent<Animator>();
-        if (choicePanelAnimator == null)
-        {
-            Debug.LogError("ChoicePanel has no Animator component!");
             return;
         }
 
@@ -82,6 +65,7 @@ public class ChoiceHandler
         {
             inputMessageButton.onClick.RemoveAllListeners();
             inputMessageButton.onClick.AddListener(ToggleChoicePanel);
+            inputMessageText = inputMessageButton.GetComponentInChildren<TextMeshProUGUI>();
         }
         else
         {
@@ -89,8 +73,6 @@ public class ChoiceHandler
         }
 
         ChatAreaEvents.OnChatAreaChanged += OnChatAreaChanged;
-
-        choicePanel.SetActive(false);
 
         isInitialized = true;
         //Debug.Log("ChoiceHandler Initialized successfully");
@@ -108,20 +90,31 @@ public class ChoiceHandler
     {
         //Debug.Log($"ToggleChoicePanel called. IsOpen: {IsChoicePanelOpen}, InCorrectArea: {IsInCorrectChatArea()}");
 
-        if (IsChoicePanelOpen && !isClosing)
+
+        // Check if area is correct
+        if (!IsInCorrectChatArea())
+        {
+            Debug.Log($"Cannot open choice panel. Current area: {currentActiveChatArea}, Required area: {currentChatAreaForChoices}");
+            return;
+        }
+
+        if(currentChoices == null || currentChoices.Count == 0)
+        {
+            Debug.Log("No choices available to display.");
+            return;
+        }
+
+        if(isChoicesOpen)
         {
             CloseChoicePanel();
         }
-        else if (IsInCorrectChatArea())
+        else 
         {
             OpenChoicePanel();
         }
-        else
-        {
-            Debug.Log($"Cannot open choice panel. Current area: {currentActiveChatArea}, Required area: {currentChatAreaForChoices}, Has choices: {currentChoices != null}");
-        }
     }
 
+    bool isChoiceMoving = false;
     private void OpenChoicePanel()
     {
         if (!IsInCorrectChatArea())
@@ -130,8 +123,6 @@ public class ChoiceHandler
             return;
         }
 
-        isClosing = false;
-        choicePanel.SetActive(true);
         DisplayChoices();
         TriggerShowAnimation();
         ChatAreaEvents.TriggerChoicePanelStateChanged(true);
@@ -139,79 +130,39 @@ public class ChoiceHandler
 
     private void CloseChoicePanel()
     {
-        if (isClosing) return;
-
-        isClosing = true;
         inputMessageText.color = new Color32(0xFF, 0xE1, 0xBA, 0xFF);
         TriggerCloseAnimation();
         ChatAreaEvents.TriggerChoicePanelStateChanged(false);
-
-        ChatDialogueManager.GetInstance().StartCoroutine(WaitForCloseAnimationThenStayClosed());
-    }
-
-    private System.Collections.IEnumerator WaitForCloseAnimationThenStayClosed()
-    {
-        yield return new WaitForSeconds(0.5f);
-
-        if (choicePanelAnimator != null)
-        {
-            choicePanelAnimator.SetTrigger(STAY_CLOSED_TRIGGER);
-        }
-
-        isClosing = false;
     }
 
     private void TriggerShowAnimation()
     {
-        //Debug.Log("TriggerShowAnimation called");
-        if (choicePanelAnimator == null) return;
+        if (isChoiceMoving) return;
+        isChoiceMoving = true;
 
         int choiceCount = currentChoices?.Count ?? 0;
 
-        switch (choiceCount)
-        {
-            case 1:
-                choicePanelAnimator.SetTrigger(SHOW_CHOICE1_TRIGGER);
-                break;
-            case 2:
-                choicePanelAnimator.SetTrigger(SHOW_CHOICE2_TRIGGER);
-                break;
-            case 3:
-                choicePanelAnimator.SetTrigger(SHOW_CHOICE3_TRIGGER);
-                break;
-            default:
-                Debug.LogWarning($"Unsupported number of choices: {choiceCount}");
-                choicePanelAnimator.SetBool(IS_OPEN_BOOL, true);
-                break;
-        }
+        float targetY = choiceCount * 70f;
 
-        choicePanelAnimator.SetBool(IS_OPEN_BOOL, true);
+        chatAreaPanel.GetComponent<RectTransform>().DOAnchorPosY(targetY, 0.5f).OnComplete(() =>
+        {
+            isChoiceMoving = false;
+            isChoicesOpen = true;
+        });
     }
 
     private void TriggerCloseAnimation()
     {
-        //Debug.Log("TriggerCloseAnimation called");
-        if (choicePanelAnimator == null) return;
+        if (isChoiceMoving) return;
+        isChoiceMoving = true;
 
-        int choiceCount = currentChoices?.Count ?? 0;
+        Debug.Log("TriggerCloseAnimation called");
 
-        switch (choiceCount)
+        chatAreaPanel.GetComponent<RectTransform>().DOAnchorPosY(0f, 0.5f).OnComplete(() =>
         {
-            case 1:
-                //Debug.Log("Closing choice panel with 1 choice");
-                choicePanelAnimator.SetTrigger(CLOSE_CHOICE1_TRIGGER);
-                break;
-            case 2:
-                choicePanelAnimator.SetTrigger(CLOSE_CHOICE2_TRIGGER);
-                break;
-            case 3:
-                choicePanelAnimator.SetTrigger(CLOSE_CHOICE3_TRIGGER);
-                break;
-            default:
-                break;
-        }
-
-        choicePanelAnimator.SetBool(IS_OPEN_BOOL, false);
+            isChoiceMoving = false;
+            isChoicesOpen = false;
+        });
     }
 
     private void DisplayChoices()
@@ -244,11 +195,15 @@ public class ChoiceHandler
                 }
             }
         }
+        LayoutRebuilder.ForceRebuildLayoutImmediate(choicePanel.GetComponent<RectTransform>());
         SelectFirstChoice();
     }
 
     private void OnChoiceButtonClicked(int choiceIndex)
     {
+        // Make sure choice cannot be pressed in animation
+        if(isChoiceMoving) return;
+
         List<Choice> choicesCopy = currentChoices != null ? new List<Choice>(currentChoices) : null;
         int selectedIndex = choiceIndex;
 
@@ -287,27 +242,12 @@ public class ChoiceHandler
 
         currentChoices = null;
         currentChatAreaForChoices = null;
-
-        ChatDialogueManager.GetInstance().StartCoroutine(DeactivatePanelAfterDelay());
-    }
-
-    private System.Collections.IEnumerator DeactivatePanelAfterDelay()
-    {
-        yield return new WaitForSeconds(0.5f);
-        if (choicePanel != null)
-        {
-            choicePanel.SetActive(false);
-        }
     }
 
     private void OnChatAreaChanged(string newAreaName)
     {
         currentActiveChatArea = newAreaName;
-
-        if (IsChoicePanelOpen && !IsInCorrectChatArea())
-        {
-            CloseChoicePanel();
-        }
+        CloseChoicePanel();
     }
 
     private bool IsInCorrectChatArea()
