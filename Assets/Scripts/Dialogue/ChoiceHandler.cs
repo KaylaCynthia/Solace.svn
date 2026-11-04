@@ -130,7 +130,6 @@ public class ChoiceHandler
 
     private void CloseChoicePanel()
     {
-        inputMessageText.color = new Color32(0xFF, 0xE1, 0xBA, 0xFF);
         TriggerCloseAnimation();
         ChatAreaEvents.TriggerChoicePanelStateChanged(false);
     }
@@ -211,6 +210,7 @@ public class ChoiceHandler
         if (IsInCorrectChatArea() && choiceIndex < currentChoices.Count)
         {
             CloseChoicePanel();
+            inputMessageText.color = new Color32(0xFF, 0xE1, 0xBA, 0xFF);
 
             onChoiceSelected?.Invoke(selectedIndex);
             //Debug.Log($"Choice selected: {selectedIndex} - {choicesCopy[selectedIndex].text}");
