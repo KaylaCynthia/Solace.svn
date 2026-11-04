@@ -154,6 +154,7 @@ public class ChoiceHandler
     private void TriggerCloseAnimation()
     {
         if (isChoiceMoving) return;
+        if (!isChoicesOpen) return;
         isChoiceMoving = true;
 
         Debug.Log("TriggerCloseAnimation called");
