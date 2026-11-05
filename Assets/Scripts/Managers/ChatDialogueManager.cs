@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using Ink.Runtime;
+using Ink.UnityIntegration;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -129,7 +130,7 @@ public class ChatDialogueManager : MonoBehaviour
         }
 
         inkFileManager.StartConversation(conversationKey);
-        TextAsset inkFile = inkFileManager.GetCurrentInkFile();
+        InkFile inkFile = inkFileManager.GetCurrentInkFile();
 
         if (inkFile != null)
         {
@@ -138,9 +139,9 @@ public class ChatDialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(InkFile inkFile)
     {
-        currentStory = new Story(inkJSON.text);
+        currentStory = new Story(inkFile.storyJson);
         DialogueIsPlaying = true;
         chatUI.Show();
         ContinueStory();
@@ -480,12 +481,16 @@ public class ChatDialogueManager : MonoBehaviour
         else if (!string.IsNullOrEmpty(nextBranch))
         {
             inkFileManager.MoveToNextBranch(nextBranch);
-            TextAsset nextInkFile = inkFileManager.GetCurrentInkFile();
+            InkFile nextInkFile = inkFileManager.GetCurrentInkFile();
             if (nextInkFile != null)
             {
                 currentConversationChatArea = nextChatArea ?? currentConversationChatArea;
                 EnterDialogueMode(nextInkFile);
                 yield break;
+            }
+            else
+            {
+                Debug.LogError($"Next Ink file not found for branch: {nextBranch}");
             }
         }
         StartCoroutine(ExitDialogueMode());

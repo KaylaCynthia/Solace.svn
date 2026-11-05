@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Ink.UnityIntegration;
 
 [CreateAssetMenu(fileName = "InkFileManager", menuName = "Dialogue/Ink File Manager")]
 public class InkFileManager : ScriptableObject
@@ -8,7 +9,7 @@ public class InkFileManager : ScriptableObject
     public class ConversationBranch
     {
         public string conversationKey;
-        public TextAsset inkFile;
+        public InkFile inkFile;
         public List<string> nextPossibleBranches;
     }
 
@@ -20,12 +21,12 @@ public class InkFileManager : ScriptableObject
         currentConversationKey = conversationKey;
     }
 
-    public TextAsset GetCurrentInkFile()
+    public InkFile GetCurrentInkFile()
     {
         return GetInkFileByKey(currentConversationKey);
     }
 
-    public TextAsset GetInkFileByKey(string conversationKey)
+    public InkFile GetInkFileByKey(string conversationKey)
     {
         ConversationBranch branch = conversationBranches.Find(b => b.conversationKey == conversationKey);
         return branch?.inkFile;

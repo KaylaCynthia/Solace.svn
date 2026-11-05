@@ -91,6 +91,7 @@ public class ChatMessageUI : MonoBehaviour
             messageText.text = messageText.text.Replace("\n\n", "\n");
         }
         StartCoroutine(ResizeAfterLayout());
+        messageText.GetComponent<ClickableText>()?.SetText(messageText.text);
     }
 
     public void SetMessageText(string text)

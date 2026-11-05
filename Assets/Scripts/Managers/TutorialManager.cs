@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using Ink.Runtime;
+using Ink.UnityIntegration;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -56,14 +57,14 @@ public class TutorialManager : MonoBehaviour
             return;
         }
 
-        TextAsset tutorialInkFile = inkFileManager.GetInkFileByKey(conversationKey);
+        InkFile tutorialInkFile = inkFileManager.GetInkFileByKey(conversationKey);
         if (tutorialInkFile == null)
         {
             Debug.LogError($"Tutorial Ink file not found for key: {conversationKey}");
             return;
         }
 
-        currentTutorialStory = new Story(tutorialInkFile.text);
+        currentTutorialStory = new Story(tutorialInkFile.storyJson);
         isTutorialActive = true;
         isDisplayingText = false;
 
