@@ -102,10 +102,8 @@ public class ClickableText : MonoBehaviour,IPointerClickHandler, IPointerEnterHa
             string innerText = match.Groups[3].Value;
             string closeTag = match.Groups[4].Value;
 
-            Debug.Log($"Link ID: {linkID}, Hovered Link ID: {hoveredLinkID}, Inner Text: {innerText}");
             bool isThisHovered = linkID == hoveredLinkID;
             bool isChannel = linkID.StartsWith("channel");
-            Debug.Log($"Link ID: {linkID}, IsHovered: {isThisHovered}, IsChannel: {isChannel}");
 
             if (isChannel)
             {
