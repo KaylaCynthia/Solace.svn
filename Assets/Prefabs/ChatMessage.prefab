@@ -116,7 +116,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -223,7 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5654558865518113638}
   - component: {fileID: 7183242114499429352}
-  - component: {fileID: 8341432243600632249}
+  - component: {fileID: 2131456046404424837}
   m_Layer: 5
   m_Name: ChatMessage
   m_TagString: Untagged
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &8341432243600632249
+--- !u!114 &2131456046404424837
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,19 +287,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1745405653332741104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef02dde98443a3c4688c07f5c1b8283e, type: 3}
+  m_Script: {fileID: 11500000, guid: 46a6fe2301de607499016fe9d86c6e48, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  portraitImage: {fileID: 6686643702928160823}
-  speakerText: {fileID: 7577784811171571904}
-  messageText: {fileID: 2714662935085396405}
-  messageContainer: {fileID: 7630340804179685916}
-  chatMessageRect: {fileID: 5654558865518113638}
-  layoutGroup: {fileID: 7183242114499429352}
-  minHeight: 10
-  maxWidth: 775
-  spacingBetweenMessages: 20
-  defaultPortrait: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::DialogBoxScript
+  nameText: {fileID: 7577784811171571904}
+  dialogText: {fileID: 2714662935085396405}
 --- !u!1 &8979100257139849390
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +409,7 @@ MonoBehaviour:
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
-  m_ActiveFontFeatures: 6e72656b
+  m_ActiveFontFeatures: 6e72656bu
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
@@ -465,3 +457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5dba0f72edcf34393339c0e56cec54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableText
+  channelLinkColor: {r: 0.541, g: 0.718, b: 1, a: 1}
+  channelLinkHoverColor: {r: 0.278, g: 0.953, b: 1, a: 0.33}
+  channelLinkMarkColor: {r: 0, g: 0, b: 0, a: 0}
+  channelLinkMarkHoverColor: {r: 0.278, g: 0.953, b: 1, a: 0.33}
+  hyperlinkColor: {r: 0.941, g: 0.408, b: 0, a: 1}
+  hyperlinkHoverColor: {r: 1, g: 0.729, b: 0.522, a: 1}

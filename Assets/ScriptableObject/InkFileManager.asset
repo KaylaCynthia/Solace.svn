@@ -14,27 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversationBranches:
   - conversationKey: sunny_intro
-    inkFile: {fileID: 4900000, guid: 200cf309373802b42a2bb144be078490, type: 3}
+    inkFile: {fileID: 6231892579173505729, guid: d7d24d05d33f3e14da1d8358618d1b52, type: 3}
     nextPossibleBranches:
     - sunny_intro2
   - conversationKey: sunny_intro2
-    inkFile: {fileID: 4900000, guid: d103c2f0c7d6b154caa037129767d0cb, type: 3}
+    inkFile: {fileID: 6231892579173505729, guid: f0a4caeb9a9443f4496f191711d0b859, type: 3}
     nextPossibleBranches:
     - welcoming
   - conversationKey: welcoming
-    inkFile: {fileID: 4900000, guid: 20ff2ea54d24d064dadb9da94ead461e, type: 3}
+    inkFile: {fileID: 6231892579173505729, guid: e8e8f8bb8c9166e4cace77a4c6f9c8b9, type: 3}
     nextPossibleBranches:
     - lounge_intro
   - conversationKey: lounge_intro
-    inkFile: {fileID: 4900000, guid: d267ee4365623664b8d7435f73864ce9, type: 3}
+    inkFile: {fileID: 6231892579173505729, guid: 3b9c47e0d1cd0fb4d9f8f91a831d03fc, type: 3}
     nextPossibleBranches:
     - next_day
   - conversationKey: lounge_daytwo
-    inkFile: {fileID: 4900000, guid: 2a7bca38abd74af49863dc30cc41d51c, type: 3}
+    inkFile: {fileID: 6231892579173505729, guid: a982cb314b7fca3449d93e83611077c1, type: 3}
     nextPossibleBranches:
     - sunroom_intro
   - conversationKey: sunroom_intro
-    inkFile: {fileID: 4900000, guid: 59d1c1b6507fb274293279d0cbde7c9d, type: 3}
+    inkFile: {fileID: 6231892579173505729, guid: 9bb03620703a28e47af9c06749015cbf, type: 3}
     nextPossibleBranches:
     - to_be_continued
   - conversationKey: next_day
