@@ -7,23 +7,31 @@ public class ChannelDialogPlayer : MonoBehaviour
     [SerializeField] private Transform dialogParent;
     [SerializeField] private GameObject dialogPrefab;
     GameObject currentDialog;
-
+    string currentSpeaker;
     public void CreateNewMessage(string text, List<string> tags)
     {
         // Debug.Log("Creating new message, tags: " + string.Join(",", tags?.ToArray() ?? new string[0]));
-        bool hasPortraitTag = tags?.Any(tag => tag.StartsWith("portrait")) ?? false;
-        if(currentDialog == null && !hasPortraitTag)
+        bool hasSpeakerTag = tags.Find(tag => tag.StartsWith("speaker")) != null;
+        if(currentDialog == null && !hasSpeakerTag)
         {
             Debug.LogError("No previous textbox and no portrait");
             return;
         }
         // Debug.Log("Has portrait tag: " + hasPortraitTag);
 
-        if(hasPortraitTag)
+        if(hasSpeakerTag)
         {
             // Create a new dialog
             currentDialog = Instantiate(dialogPrefab, dialogParent);
-            currentDialog.GetComponent<DialogBoxScript>().SetText("aa", text);
+            currentSpeaker = GetMessageName(tags);
+            currentDialog.GetComponent<DialogBoxScript>().SetText(currentSpeaker, text);
+
+            bool hasPortraitTag = tags.Find(tag => tag.StartsWith("portrait")) != null;
+            if(hasPortraitTag)
+            {
+                string portraitName = tags.Find(tag => tag.StartsWith("portrait")).Split(':')[1].Trim();
+                currentDialog.GetComponent<DialogBoxScript>().SetPortrait(portraitName);
+            }
             Debug.Log("New dialog created: " + text);
         }
         else
@@ -38,6 +46,11 @@ public class ChannelDialogPlayer : MonoBehaviour
             {
                 Debug.LogError("This should be impossible because of the check above");
             }
+        }
+
+        string GetMessageName(List<string> tags)
+        {
+            return tags.FirstOrDefault(tag => tag.StartsWith("speaker:"))?.Split(':')[1].Trim() ?? "Unknown";
         }
     }
 }

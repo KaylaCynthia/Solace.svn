@@ -14,7 +14,7 @@ public class ChatDialogueManager : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private ChatUI chatUI;
-    [SerializeField] private ChoiceHandler choiceHandler;
+    [SerializeField] private ChoiceHandlerOld choiceHandler;
 
     [Header("Dialogue Parameters")]
     [SerializeField] private float lettersPerSecond;

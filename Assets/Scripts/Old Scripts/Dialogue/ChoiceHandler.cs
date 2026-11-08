@@ -7,7 +7,7 @@ using Ink.Runtime;
 using DG.Tweening;
 
 [System.Serializable]
-public class ChoiceHandler
+public class ChoiceHandlerOld
 {
     [SerializeField] private GameObject chatAreaPanel;
     [SerializeField] private GameObject choicePanel;

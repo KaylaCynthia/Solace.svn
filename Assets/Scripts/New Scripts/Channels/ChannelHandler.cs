@@ -33,6 +33,56 @@ public class ChannelHandler : MonoBehaviour
     }
     #endregion
 
+    void Awake()
+    {
+        channelButton.onClick.AddListener(ButtonClicked);
+    }
+    void ButtonClicked()
+    {
+        Debug.Log("Channel button clicked: " + channelName);
+        ChannelEventManager.OnChannelClicked?.Invoke(channelName);
+    }
+    void OnEnable()
+    {
+        ChannelEventManager.OnChannelClicked += OnChannelOpenedHandler;
+        ChannelEventManager.OnChoiceSelected += HandleChoiceSelected;
+    }
+
+    void OnDisable()
+    {
+        ChannelEventManager.OnChoiceSelected -= HandleChoiceSelected;
+        ChannelEventManager.OnChannelClicked -= OnChannelOpenedHandler;
+    }
+
+    void OnChannelOpenedHandler(string channelName)
+    {
+        // Check if this channel is the one that was opened
+        if(channelName != this.channelName)
+        {
+            return;
+        }
+
+        // If it is, trigger the OnChannelOpened event
+        OnChannelOpened?.Invoke();
+    }
+
+    void HandleChoiceSelected(string channelName, int choiceIndex)
+    {
+        if (channelName == this.channelName)
+        {
+            ChooseChoice(choiceIndex);
+        }
+    }
+
+    void OnChannelOpenedHandler()
+    {
+        // Check if this chanel has an active conversation
+        if (currentStory != null && currentStory.canContinue)
+        {
+            NextLine();
+        }
+    }
+
     void StartConversation(InkFile conversationInk)
     {
         currentStory = new Story(conversationInk.storyJson);
@@ -57,7 +107,7 @@ public class ChannelHandler : MonoBehaviour
             channelDialogPlayer.CreateNewMessage(text, currentStory.currentTags);
             // NotificationEvent.TriggerNewMessage(channelName);
             // Process the text and update the UI
-            Invoke(nameof(NextLine), 10f);
+            Invoke(nameof(NextLine), 2f);
         }
         else
         {
@@ -73,6 +123,7 @@ public class ChannelHandler : MonoBehaviour
                     Debug.Log("Choice: " + choice.text);
                     Debug.Log("Choice tags: " + string.Join(", ", choice.tags?.ToArray() ?? new string[0]));
                 }
+                ChoiceHandler.TriggerShowChoices?.Invoke(currentStory.currentChoices);
             }
             else
             {
@@ -88,15 +139,19 @@ public class ChannelHandler : MonoBehaviour
         if (currentStory.currentChoices.Count > 0)
         {
             ChooseChoice(0);
-            NextLine();
         }
     }
 
     void ChooseChoice(int choiceIndex)
     {
-        // Act like its a dialog
-        channelDialogPlayer.CreateNewMessage(currentStory.currentChoices[choiceIndex].text, currentStory.currentChoices[choiceIndex].tags);
+        if(choiceIndex < 0 || choiceIndex >= currentStory.currentChoices.Count)
+        {
+            Debug.LogError("Invalid choice index: " + choiceIndex);
+            return;
+        }
         currentStory.ChooseChoiceIndex(choiceIndex);
+        ChoiceHandler.TriggerHideChoices?.Invoke();
+        NextLine();
     }
 
     IEnumerator WaitForResponse()
@@ -107,6 +162,4 @@ public class ChannelHandler : MonoBehaviour
             yield return null;
         }
     }
-
-
 }
