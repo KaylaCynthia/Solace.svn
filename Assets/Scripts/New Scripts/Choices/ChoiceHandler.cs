@@ -7,7 +7,6 @@ public class ChoiceHandler : MonoBehaviour
 {
     [SerializeField] RectTransform chatAreaPanel;
     float originalHeight;
-
     public static Action<List<Choice>> TriggerShowChoices;
     public static Action TriggerHideChoices;
 
@@ -18,6 +17,7 @@ public class ChoiceHandler : MonoBehaviour
     {
         TriggerShowChoices += ShowChoicesHandler;
         TriggerHideChoices += HideChoicesHandler;
+        ChannelEventManager.OnNewChannelClicked += HideChoicesHandler;
     }
 
     void OnDisable()
@@ -59,7 +59,7 @@ public class ChoiceHandler : MonoBehaviour
             if (i < choiceButtons.Count)
             {
                 choiceButtons[i].SetChoiceText(choices[i].text);
-                Debug.Log("Getting height of choice button " + i + ": " + choiceButtons[i].GetComponent<RectTransform>().rect.height);
+                // Debug.Log("Getting height of choice button " + i + ": " + choiceButtons[i].GetComponent<RectTransform>().rect.height);
                 choicesHeight += choiceButtons[i].GetComponent<RectTransform>().rect.height;
             }
         }
@@ -68,6 +68,13 @@ public class ChoiceHandler : MonoBehaviour
     
     void HideChoicesHandler()
     {
+        Debug.Log("Hiding choices");
         chatAreaPanel.DOSizeDelta(new Vector2(chatAreaPanel.sizeDelta.x, originalHeight), 0.3f).SetEase(Ease.OutQuad);
+    }
+
+    void HideChoicesHandler(string _)
+    {
+        Debug.Log("Hiding choices due to channel change");
+        TriggerHideChoices?.Invoke();
     }
 }

@@ -18,9 +18,7 @@ public class ChannelHandler : MonoBehaviour
 
     [Header("Channel Events")]
     [SerializeField] ChannelDialogPlayer channelDialogPlayer;
-
     public static Action OnChannelOpened;
-
     public static Action ContinueConversation;
     private Story currentStory;
 
@@ -44,17 +42,30 @@ public class ChannelHandler : MonoBehaviour
     }
     void OnEnable()
     {
-        ChannelEventManager.OnChannelClicked += OnChannelOpenedHandler;
-        ChannelEventManager.OnChoiceSelected += HandleChoiceSelected;
+        ChannelEventManager.OnChannelClicked += HandleChannelClickedCallback;
+
     }
 
     void OnDisable()
     {
-        ChannelEventManager.OnChoiceSelected -= HandleChoiceSelected;
-        ChannelEventManager.OnChannelClicked -= OnChannelOpenedHandler;
+        ChannelEventManager.OnChannelClicked -= HandleChannelClickedCallback;
+    }
+    
+    void HandleChannelClickedCallback(string clickedChannelName)
+    {
+        if (clickedChannelName == channelName)
+        {
+            // Return the channel handler to the event manager so it can be set as the current channel handler
+            ChannelEventManager.OnChannelClickedCallback?.Invoke(this);
+        }
+    }
+    public void OnChannelOpenedHandler()
+    {
+        CheckWaitingForResponse();
+        OnChannelOpened?.Invoke();
     }
 
-    void OnChannelOpenedHandler(string channelName)
+    public void TriggerTryShowChoicesHandler(string channelName)
     {
         // Check if this channel is the one that was opened
         if(channelName != this.channelName)
@@ -62,29 +73,23 @@ public class ChannelHandler : MonoBehaviour
             return;
         }
 
-        // If it is, trigger the OnChannelOpened event
-        OnChannelOpened?.Invoke();
+        // If it is, trigger the TryShowChoices event
+        TryShowChoices();
     }
 
-    void HandleChoiceSelected(string channelName, int choiceIndex)
+    public void HandleChoiceSelected(int choiceIndex)
     {
-        if (channelName == this.channelName)
-        {
-            ChooseChoice(choiceIndex);
-        }
-    }
-
-    void OnChannelOpenedHandler()
-    {
-        // Check if this chanel has an active conversation
-        if (currentStory != null && currentStory.canContinue)
-        {
-            NextLine();
-        }
+        ChooseChoice(choiceIndex);
     }
 
     void StartConversation(InkFile conversationInk)
     {
+        if(conversationInk == null)
+        {
+            Debug.LogError("Conversation Ink file is null for channel: " + channelName);
+            return;
+        }
+        isActive = true;
         currentStory = new Story(conversationInk.storyJson);
         NextLine();
     }
@@ -101,7 +106,7 @@ public class ChannelHandler : MonoBehaviour
                 NextLine();
                 return;
             }
-            Debug.Log("Continuing conversation");
+            // Debug.Log("Continuing conversation");
             // Debug.Log("Line: " + text);
             // Debug.Log("Tags: " + string.Join(", ", currentStory.currentTags));
             channelDialogPlayer.CreateNewMessage(text, currentStory.currentTags);
@@ -115,21 +120,35 @@ public class ChannelHandler : MonoBehaviour
             // Check if its choice or end
             if (currentStory.currentChoices.Count > 0)
             {
-                Debug.Log("Choices available");
-                // Debug.Log("Curr Text: " + currentStory.currentText);
-                // Debug.Log("Tags: " + string.Join(", ", currentStory.currentTags));
-                foreach (Choice choice in currentStory.currentChoices)
-                {
-                    Debug.Log("Choice: " + choice.text);
-                    Debug.Log("Choice tags: " + string.Join(", ", choice.tags?.ToArray() ?? new string[0]));
-                }
-                ChoiceHandler.TriggerShowChoices?.Invoke(currentStory.currentChoices);
+                isWaitingForResponse = true;
+                ChannelEventManager.OnChannelWaitingForResponse?.Invoke(channelName);
             }
             else
             {
                 // End of conversation
-                
+                isActive = false;
+                isWaitingForResponse = false;
+                currentStory = null;
             }
+        }
+    }
+
+    void TryShowChoices()
+    {
+        if(currentStory == null)
+        {
+            Debug.LogError("No current story to show choices from.");
+            return;
+        }
+
+        if (currentStory.currentChoices.Count > 0)
+        {
+            ChoiceHandler.TriggerShowChoices?.Invoke(currentStory.currentChoices);
+        }
+        else
+        {
+            Debug.Log("No choices available, ending conversation.");
+            // End of conversation
         }
     }
 
@@ -144,6 +163,12 @@ public class ChannelHandler : MonoBehaviour
 
     void ChooseChoice(int choiceIndex)
     {
+        if(currentStory == null)
+        {
+            Debug.LogError("No current story to choose from.");
+            return;
+        }
+
         if(choiceIndex < 0 || choiceIndex >= currentStory.currentChoices.Count)
         {
             Debug.LogError("Invalid choice index: " + choiceIndex);
@@ -151,15 +176,28 @@ public class ChannelHandler : MonoBehaviour
         }
         currentStory.ChooseChoiceIndex(choiceIndex);
         ChoiceHandler.TriggerHideChoices?.Invoke();
+        ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
         NextLine();
     }
 
-    IEnumerator WaitForResponse()
+    public void CheckWaitingForResponse()
     {
-        isWaitingForResponse = true;
-        while (isWaitingForResponse)
+        if(currentStory == null)
         {
-            yield return null;
+            isWaitingForResponse = false;
+            ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
+            return;
+        }
+
+        if (currentStory.currentChoices.Count > 0)
+        {
+            isWaitingForResponse = true;
+            ChannelEventManager.OnChannelWaitingForResponse?.Invoke(channelName);
+        }
+        else
+        {
+            isWaitingForResponse = false;
+            ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
         }
     }
 }

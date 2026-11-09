@@ -2,12 +2,12 @@ VAR nextChatArea = ""
 VAR nextBranch = ""
 +hi, is this 12_sunny from Reddnet #speaker:Player
 +[(say nothing)] 
-// +Testing a very long message that might make the thinggy go lower and im not sure if my implentation can work for the choice boxes to automaticaly expand itself but i think it wont work anyways cuz the buttons need to report its own size for this to work
-- hey, heyy! #speaker:Sunny
+//+Testing a very long message that might make the thinggy go lower and im not sure if my implentation can work for the choice boxes to automaticaly expand itself but i think it wont work anyways cuz the buttons need to report its own size for this to work
+-hey, heyy! #speaker:Sunny
 yep, it's me
 
 +so...#speaker:Player
-- i didn't know i wasn't alone 
+-i didn't know i wasn't alone 
 
 of course not! #speaker:Sunny
 well... especially the ones who actually care about what they're doing
@@ -22,7 +22,6 @@ I'm not that great
 
 yeah, that's how it felt for me too #speaker:Sunny
 it's like your brain refuses to accept any of it even tho you know you did all that
-
 
 +it's exhausting #speaker:Player
 
@@ -62,7 +61,7 @@ reminding one another that every sunset is just the promise of another dawn
 +so... it's an echoes server? #speaker:Player
 +is it like a support group? #speaker:Player
 
-- yeah, it started as a study group but turned into something more like small community #speaker:Sunny
+-yeah, it started as a study group but turned into something more like small community #speaker:Sunny
 there's someone that started this group, his name is Rael
 he's... different
 he helped us a lot
@@ -82,7 +81,7 @@ i can send you the link if you want, no pressure tho
     you can look around first
     still... i think you'd like it
     
-- i'll sent you the link later tonight once i got the permission #speaker:Sunny
+-i'll sent you the link later tonight once i got the permission #speaker:Sunny
 just think about it first
 ~ nextChatArea = "ChatAreaSunny"
 ~ nextBranch = "sunny_intro2"

@@ -39,7 +39,7 @@ public class ChannelDialogPlayer : MonoBehaviour
             if(currentDialog != null)
             {
                 // Append to the existing dialog
-                Debug.Log("Appending " + text +  " existing dialog");
+                // Debug.Log("Appending " + text +  " existing dialog");
                 currentDialog.GetComponent<DialogBoxScript>().AppendText(text);
             }
             else
