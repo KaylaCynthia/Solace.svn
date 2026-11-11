@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Ink.UnityIntegration;
 
 public class ChannelEventManager : MonoBehaviour
 {
@@ -30,6 +31,10 @@ public class ChannelEventManager : MonoBehaviour
         currentChannelHandler.OnChannelOpenedHandler();
         OnNewChannelClicked?.Invoke();
     }
+
+    public static Action<string> TriggerDialogEvent; // inkName
+    public static Action<string, InkFile> OnDialogTriggered; // channelName, inkFile
+
 
     public static Action TryShowChoices; // Call only
 
@@ -63,7 +68,6 @@ public class ChannelEventManager : MonoBehaviour
             ChannelWaitingForResponse?.Invoke();
         }
     }
-
 
 
     public static Action<string, int> OnChoiceSelected; // channelName, choiceIndex

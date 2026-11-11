@@ -1,9 +1,11 @@
 using UnityEngine;
+using Ink.UnityIntegration;
 
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
     [SerializeField] private ProfilePictureDatabase profilePictureDatabase;
+    [SerializeField] private InkDatabase inkDatabase;
 
     private void Awake()
     {
@@ -21,5 +23,10 @@ public class DataManager : MonoBehaviour
     public Sprite GetProfilePicture(string profileName)
     {
         return profilePictureDatabase.GetProfilePicture(profileName);
+    }
+    
+    public InkFile GetInkFile(string inkName)
+    {
+        return inkDatabase.GetInkFile(inkName);
     }
 }

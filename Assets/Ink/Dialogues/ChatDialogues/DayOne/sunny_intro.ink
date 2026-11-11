@@ -1,5 +1,3 @@
-VAR nextChatArea = ""
-VAR nextBranch = ""
 +hi, is this 12_sunny from Reddnet #speaker:Player
 +[(say nothing)] 
 //+Testing a very long message that might make the thinggy go lower and im not sure if my implentation can work for the choice boxes to automaticaly expand itself but i think it wont work anyways cuz the buttons need to report its own size for this to work
@@ -83,7 +81,4 @@ i can send you the link if you want, no pressure tho
     
 -i'll sent you the link later tonight once i got the permission #speaker:Sunny
 just think about it first
-~ nextChatArea = "ChatAreaSunny"
-~ nextBranch = "sunny_intro2"
-
 ->END

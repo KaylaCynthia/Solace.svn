@@ -2,9 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using System;
-using System.Collections;
 using Ink.Runtime;
 using Ink.UnityIntegration;
+using System.Collections.Generic;
+using DG.Tweening;
 
 public class ChannelHandler : MonoBehaviour
 {
@@ -43,12 +44,20 @@ public class ChannelHandler : MonoBehaviour
     void OnEnable()
     {
         ChannelEventManager.OnChannelClicked += HandleChannelClickedCallback;
-
+        ChannelEventManager.OnDialogTriggered += HandleDialogTriggered;
     }
 
     void OnDisable()
     {
         ChannelEventManager.OnChannelClicked -= HandleChannelClickedCallback;
+    }
+
+    void HandleDialogTriggered(string channelName, InkFile inkFile)
+    {
+        if (channelName == this.channelName)
+        {
+            StartConversation(inkFile);
+        }
     }
     
     void HandleChannelClickedCallback(string clickedChannelName)
@@ -94,25 +103,41 @@ public class ChannelHandler : MonoBehaviour
         NextLine();
     }
 
-    void NextLine()
+    void NextLine(bool isInstant = false)
     {
         if (currentStory.canContinue)
         {
-            // Check for portrait and speaker tags
             string text = currentStory.Continue();
-            if(string.IsNullOrWhiteSpace(text))
+            if(string.IsNullOrWhiteSpace(text) && currentStory.currentTags.Count == 0)
             {
                 Debug.Log("Empty text, continuing...");
                 NextLine();
                 return;
             }
-            // Debug.Log("Continuing conversation");
-            // Debug.Log("Line: " + text);
-            // Debug.Log("Tags: " + string.Join(", ", currentStory.currentTags));
-            channelDialogPlayer.CreateNewMessage(text, currentStory.currentTags);
-            // NotificationEvent.TriggerNewMessage(channelName);
-            // Process the text and update the UI
-            Invoke(nameof(NextLine), 2f);
+
+            if(currentStory.currentTags.Count > 0)
+            {
+                if(currentStory.currentTags.Exists(tag => tag.StartsWith("CallConversation")))
+                {
+                    HandleCallConversationTag(currentStory.currentTags);
+                }
+            }
+            
+            if(!string.IsNullOrWhiteSpace(text))
+            {
+                float typingTime = isInstant ? 0f : GetTypingTime(text, currentStory.currentTags);
+
+                DOVirtual.DelayedCall(typingTime, () => 
+                {
+                    channelDialogPlayer.CreateNewMessage(text, currentStory.currentTags);
+                    NextLine();
+                }, false);
+            }
+            else
+            {
+                Debug.Log("No text to display, continuing...");
+                NextLine();
+            }
         }
         else
         {
@@ -125,12 +150,22 @@ public class ChannelHandler : MonoBehaviour
             }
             else
             {
+                Debug.Log("End of conversation for channel: " + channelName);
                 // End of conversation
                 isActive = false;
                 isWaitingForResponse = false;
                 currentStory = null;
             }
         }
+    }
+
+    void HandleCallConversationTag(List<string> tags)
+    {
+        string callConversationTag = tags.Find(tag => tag.StartsWith("CallConversation"));
+        Debug.Log("CallConversation tag found: " + callConversationTag);
+        string channel = callConversationTag.Split(':')[1].Trim();
+        InkFile inkFile = DataManager.Instance.GetInkFile(callConversationTag.Split(':')[2].Trim());
+        ChannelEventManager.OnDialogTriggered?.Invoke(channel, inkFile);
     }
 
     void TryShowChoices()
@@ -152,15 +187,6 @@ public class ChannelHandler : MonoBehaviour
         }
     }
 
-    [ContextMenu("ChooseFirstChoice")]
-    void ChooseFirstChoice()
-    {
-        if (currentStory.currentChoices.Count > 0)
-        {
-            ChooseChoice(0);
-        }
-    }
-
     void ChooseChoice(int choiceIndex)
     {
         if(currentStory == null)
@@ -177,7 +203,7 @@ public class ChannelHandler : MonoBehaviour
         currentStory.ChooseChoiceIndex(choiceIndex);
         ChoiceHandler.TriggerHideChoices?.Invoke();
         ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
-        NextLine();
+        NextLine(true);
     }
 
     public void CheckWaitingForResponse()
@@ -199,5 +225,27 @@ public class ChannelHandler : MonoBehaviour
             isWaitingForResponse = false;
             ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
         }
+    }
+
+    private float typingTimePerCharacter = 0.1f; // Default typing time per character
+    float GetTypingTime(string text, List<string> tags)
+    {
+        float typingTime = 2f; // Default typing time
+
+        if(currentStory.currentTags.Exists(tag => tag.StartsWith("Speed")))
+        {
+            string speedTag = currentStory.currentTags.Find(tag => tag.StartsWith("Speed"));
+            float speedValue;
+            if(float.TryParse(speedTag.Split(':')[1].Trim(), out speedValue))
+            {
+                typingTime = speedValue;
+            }
+        }
+        else
+        {
+            typingTime = typingTimePerCharacter * text.Length;
+        }
+
+        return typingTime;
     }
 }

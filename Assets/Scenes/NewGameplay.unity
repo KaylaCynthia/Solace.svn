@@ -13347,6 +13347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataManager
   profilePictureDatabase: {fileID: 11400000, guid: d7c5d4cbf81419e4a862bc53cf3dc45b, type: 2}
+  inkDatabase: {fileID: 11400000, guid: dd48db2510d86f54c880f5a91f795355, type: 2}
 --- !u!1 &1455233563
 GameObject:
   m_ObjectHideFlags: 0
@@ -16344,7 +16345,7 @@ MonoBehaviour:
   isWaitingForResponse: 0
   channelButton: {fileID: 514551535}
   channelDialogPlayer: {fileID: 1694808143}
-  testInkFile: {fileID: 6231892579173505729, guid: d7d24d05d33f3e14da1d8358618d1b52, type: 3}
+  testInkFile: {fileID: 0}
 --- !u!114 &1694808145
 MonoBehaviour:
   m_ObjectHideFlags: 0
