@@ -13346,6 +13346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65bc96ec68465bb4c99e00dc677b04f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DataManager
+  textMessagePrefab: {fileID: 454340809836080747, guid: dc0c01a0f4ded794685b353629d3fbe6, type: 3}
   profilePictureDatabase: {fileID: 11400000, guid: d7c5d4cbf81419e4a862bc53cf3dc45b, type: 2}
   inkDatabase: {fileID: 11400000, guid: dd48db2510d86f54c880f5a91f795355, type: 2}
 --- !u!1 &1455233563
@@ -14556,6 +14557,7 @@ GameObject:
   - component: {fileID: 1565266196}
   - component: {fileID: 1565266197}
   - component: {fileID: 1565266198}
+  - component: {fileID: 1565266199}
   m_Layer: 5
   m_Name: ChatAreaSunny
   m_TagString: Untagged
@@ -14681,8 +14683,22 @@ MonoBehaviour:
   isActive: 0
   isWaitingForResponse: 0
   channelButton: {fileID: 457379174}
-  channelDialogPlayer: {fileID: 1588720376}
+  channelText: {fileID: 387797034}
+  channelDialogPlayer: {fileID: 0}
   testInkFile: {fileID: 6231892579173505729, guid: d7d24d05d33f3e14da1d8358618d1b52, type: 3}
+--- !u!114 &1565266199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565266190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12c2103a441e374ba82326ae4aea2c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChannelDialogPlayer
+  dialogParent: {fileID: 216116745}
 --- !u!1 &1566002275
 GameObject:
   m_ObjectHideFlags: 0
@@ -15186,7 +15202,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1588720375}
-  - component: {fileID: 1588720376}
   m_Layer: 0
   m_Name: ChannelDialog
   m_TagString: Untagged
@@ -15209,20 +15224,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1234088057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1588720376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1588720374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a12c2103a441e374ba82326ae4aea2c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChannelDialogPlayer
-  dialogParent: {fileID: 216116745}
-  dialogPrefab: {fileID: 1745405653332741104, guid: dc0c01a0f4ded794685b353629d3fbe6, type: 3}
 --- !u!1 &1609361502
 GameObject:
   m_ObjectHideFlags: 0
@@ -16327,7 +16328,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChannelDialogPlayer
   dialogParent: {fileID: 282515698}
-  dialogPrefab: {fileID: 1745405653332741104, guid: dc0c01a0f4ded794685b353629d3fbe6, type: 3}
 --- !u!114 &1694808144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16344,8 +16344,9 @@ MonoBehaviour:
   isActive: 0
   isWaitingForResponse: 0
   channelButton: {fileID: 514551535}
+  channelText: {fileID: 1942572741}
   channelDialogPlayer: {fileID: 1694808143}
-  testInkFile: {fileID: 0}
+  testInkFile: {fileID: 6231892579173505729, guid: f0a4caeb9a9443f4496f191711d0b859, type: 3}
 --- !u!114 &1694808145
 MonoBehaviour:
   m_ObjectHideFlags: 0

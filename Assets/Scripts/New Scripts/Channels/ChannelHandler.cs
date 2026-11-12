@@ -5,6 +5,7 @@ using System;
 using Ink.Runtime;
 using Ink.UnityIntegration;
 using System.Collections.Generic;
+using TMPro;
 using DG.Tweening;
 
 public class ChannelHandler : MonoBehaviour
@@ -16,6 +17,8 @@ public class ChannelHandler : MonoBehaviour
 
     [Header("Channel UI")]
     [SerializeField] private Button channelButton;
+    [SerializeField] private TMP_Text channelText;
+    Color originalTextColor;
 
     [Header("Channel Events")]
     [SerializeField] ChannelDialogPlayer channelDialogPlayer;
@@ -35,6 +38,7 @@ public class ChannelHandler : MonoBehaviour
     void Awake()
     {
         channelButton.onClick.AddListener(ButtonClicked);
+        originalTextColor = channelText.color;
     }
     void ButtonClicked()
     {
@@ -145,8 +149,7 @@ public class ChannelHandler : MonoBehaviour
             // Check if its choice or end
             if (currentStory.currentChoices.Count > 0)
             {
-                isWaitingForResponse = true;
-                ChannelEventManager.OnChannelWaitingForResponse?.Invoke(channelName);
+                CheckWaitingForResponse();
             }
             else
             {
@@ -201,8 +204,8 @@ public class ChannelHandler : MonoBehaviour
             return;
         }
         currentStory.ChooseChoiceIndex(choiceIndex);
+        CheckWaitingForResponse();
         ChoiceHandler.TriggerHideChoices?.Invoke();
-        ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
         NextLine(true);
     }
 
@@ -218,11 +221,13 @@ public class ChannelHandler : MonoBehaviour
         if (currentStory.currentChoices.Count > 0)
         {
             isWaitingForResponse = true;
+            channelText.color = Color.red; // Change text color to red to indicate waiting for response
             ChannelEventManager.OnChannelWaitingForResponse?.Invoke(channelName);
         }
         else
         {
             isWaitingForResponse = false;
+            channelText.color = originalTextColor; // Reset text color to original
             ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
         }
     }

@@ -5,9 +5,14 @@ using System.Linq;
 public class ChannelDialogPlayer : MonoBehaviour
 {
     [SerializeField] private Transform dialogParent;
-    [SerializeField] private GameObject dialogPrefab;
+    private GameObject dialogPrefab;
     GameObject currentDialog;
     string currentSpeaker;
+
+    void Awake()
+    {
+        dialogPrefab = DataManager.Instance.GetTextMessagePrefab();
+    }
     public void CreateNewMessage(string text, List<string> tags)
     {
         // Debug.Log("Creating new message, tags: " + string.Join(",", tags?.ToArray() ?? new string[0]));

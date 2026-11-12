@@ -3,6 +3,7 @@ using Ink.UnityIntegration;
 
 public class DataManager : MonoBehaviour
 {
+    [SerializeField] GameObject textMessagePrefab;
     public static DataManager Instance;
     [SerializeField] private ProfilePictureDatabase profilePictureDatabase;
     [SerializeField] private InkDatabase inkDatabase;
@@ -28,5 +29,10 @@ public class DataManager : MonoBehaviour
     public InkFile GetInkFile(string inkName)
     {
         return inkDatabase.GetInkFile(inkName);
+    }
+
+    public GameObject GetTextMessagePrefab()
+    {
+        return textMessagePrefab;
     }
 }
