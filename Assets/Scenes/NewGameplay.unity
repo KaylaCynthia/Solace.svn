@@ -2403,7 +2403,7 @@ MonoBehaviour:
   bubbleImage: {fileID: 1679834381}
   channelNotifs:
   - {fileID: 1565266197}
-  - {fileID: 0}
+  - {fileID: 1694808145}
 --- !u!1 &364496349
 GameObject:
   m_ObjectHideFlags: 0
@@ -6187,7 +6187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &695577000
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6203,9 +6203,9 @@ RectTransform:
   - {fileID: 1579652584}
   m_Father: {fileID: 66060126}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 62.5, y: -160}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &695577001
@@ -6315,11 +6315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BubbleNotif
   bubbleImage: {fileID: 1579652583}
-  channelNotifs:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  channelNotifs: []
 --- !u!1 &703238590
 GameObject:
   m_ObjectHideFlags: 0
@@ -14553,11 +14549,10 @@ GameObject:
   - component: {fileID: 1565266191}
   - component: {fileID: 1565266194}
   - component: {fileID: 1565266192}
-  - component: {fileID: 1565266195}
-  - component: {fileID: 1565266196}
-  - component: {fileID: 1565266197}
   - component: {fileID: 1565266198}
   - component: {fileID: 1565266199}
+  - component: {fileID: 1565266197}
+  - component: {fileID: 1565266196}
   m_Layer: 5
   m_Name: ChatAreaSunny
   m_TagString: Untagged
@@ -14624,24 +14619,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1565266190}
   m_CullTransparentMesh: 1
---- !u!114 &1565266195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1565266190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297ca172dbbfd0645944539dd5e97a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  areaName: ChatAreaSunny
-  areaType: 0
-  content: {fileID: 216116745}
-  scrollRect: {fileID: 1565266192}
-  padding: {x: 10, y: 0, z: 20, w: 0}
-  chatAreaRect: {fileID: 1565266191}
 --- !u!225 &1565266196
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -14684,7 +14661,7 @@ MonoBehaviour:
   isWaitingForResponse: 0
   channelButton: {fileID: 457379174}
   channelText: {fileID: 387797034}
-  channelDialogPlayer: {fileID: 0}
+  channelDialogPlayer: {fileID: 1565266199}
   testInkFile: {fileID: 6231892579173505729, guid: d7d24d05d33f3e14da1d8358618d1b52, type: 3}
 --- !u!114 &1565266199
 MonoBehaviour:
@@ -16282,11 +16259,10 @@ GameObject:
   - component: {fileID: 1694808142}
   - component: {fileID: 1694808149}
   - component: {fileID: 1694808148}
-  - component: {fileID: 1694808147}
-  - component: {fileID: 1694808146}
-  - component: {fileID: 1694808145}
   - component: {fileID: 1694808144}
   - component: {fileID: 1694808143}
+  - component: {fileID: 1694808145}
+  - component: {fileID: 1694808146}
   m_Layer: 5
   m_Name: ChatAreaRael
   m_TagString: Untagged
@@ -16372,24 +16348,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &1694808147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1694808141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 297ca172dbbfd0645944539dd5e97a2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  areaName: ChatAreaRael
-  areaType: 0
-  content: {fileID: 282515698}
-  scrollRect: {fileID: 1694808148}
-  padding: {x: 10, y: 0, z: 20, w: 0}
-  chatAreaRect: {fileID: 1694808142}
 --- !u!114 &1694808148
 MonoBehaviour:
   m_ObjectHideFlags: 0

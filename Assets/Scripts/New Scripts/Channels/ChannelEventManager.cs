@@ -5,12 +5,10 @@ using Ink.UnityIntegration;
 public class ChannelEventManager : MonoBehaviour
 {
     static ChannelHandler currentChannelHandler;
-    
-    // TODO: OnChannelClicked(string channelName/channelID)
-    // Hide other channels by looking at the id and changing the CanvasGroup
-    // Or we can just do the background thing, but still filter whether its a dm or server chat so
-    // the latest visible channel is the most recently opened one.
-
+    public static ChannelHandler GetCurrentChannelHandler()
+    {
+        return currentChannelHandler;
+    }
     public static Action<string> OnChannelClicked; // channelName
     public static Action<ChannelHandler> OnChannelClickedCallback; // channelHandler
     public static Action OnNewChannelClicked;
@@ -34,8 +32,6 @@ public class ChannelEventManager : MonoBehaviour
 
     public static Action<string> TriggerDialogEvent; // inkName
     public static Action<string, InkFile> OnDialogTriggered; // channelName, inkFile
-
-
     public static Action TryShowChoices; // Call only
 
     void TryShowChoicesHandler()
@@ -69,15 +65,29 @@ public class ChannelEventManager : MonoBehaviour
         }
     }
 
-
     public static Action<string, int> OnChoiceSelected; // channelName, choiceIndex
 
     public static void SelectChoice(int choiceIndex)
     {
         Debug.Log($"Choice selected: {choiceIndex}, calling OnChoiceSelected with channelName: {currentChannelHandler?.channelName}");
-        // TODO: Have a way to get the current channel name, replace "CurrentChannel" with the actual channel name.
-        // OnChoiceSelected?.Invoke(currentChannelHandler?.channelName ?? "Unknown", choiceIndex);
         currentChannelHandler?.HandleChoiceSelected(choiceIndex);
+    }
+
+    public static Action<string> OnNewMessageReceived; // channelName
+    public static Action<string> UpdateChannelNotifications; // channelName
+    public static Action UpdateBubbleNotification; // Call only
+
+    void OnNewMessageReceivedHandler(string channelName)
+    {
+        // Debug.Log("New message received in channel: " + channelName);
+        UpdateChannelNotifications?.Invoke(channelName);
+        UpdateBubbleNotification?.Invoke();
+    }
+
+    void UpdateChannelNotificationsHandler(string channelName)
+    {
+        // Debug.Log("Updating channel notifications for channel: " + channelName);
+        UpdateBubbleNotification?.Invoke();
     }
 
     void OnEnable()
@@ -86,6 +96,9 @@ public class ChannelEventManager : MonoBehaviour
         OnChannelClickedCallback += OnChannelClickedCallbackHandler;
         OnChannelWaitingForResponse += OnChannelWaitingForResponseHandler;
         TryShowChoices += TryShowChoicesHandler;
+
+        OnNewMessageReceived += OnNewMessageReceivedHandler;
+        UpdateChannelNotifications += UpdateChannelNotificationsHandler;
     }
 
     void OnDisable()
@@ -94,5 +107,8 @@ public class ChannelEventManager : MonoBehaviour
         OnChannelClickedCallback -= OnChannelClickedCallbackHandler;
         OnChannelWaitingForResponse -= OnChannelWaitingForResponseHandler;
         TryShowChoices -= TryShowChoicesHandler;
+
+        OnNewMessageReceived -= OnNewMessageReceivedHandler;
+        UpdateChannelNotifications -= UpdateChannelNotificationsHandler;
     }
 }

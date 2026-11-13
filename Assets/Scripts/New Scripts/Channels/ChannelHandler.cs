@@ -134,6 +134,7 @@ public class ChannelHandler : MonoBehaviour
                 DOVirtual.DelayedCall(typingTime, () => 
                 {
                     channelDialogPlayer.CreateNewMessage(text, currentStory.currentTags);
+                    ChannelEventManager.OnNewMessageReceived?.Invoke(channelName);
                     NextLine();
                 }, false);
             }
@@ -230,6 +231,7 @@ public class ChannelHandler : MonoBehaviour
             channelText.color = originalTextColor; // Reset text color to original
             ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
         }
+        ChannelEventManager.UpdateBubbleNotification?.Invoke();
     }
 
     private float typingTimePerCharacter = 0.1f; // Default typing time per character
