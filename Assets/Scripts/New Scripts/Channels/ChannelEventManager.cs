@@ -5,13 +5,19 @@ using Ink.UnityIntegration;
 public class ChannelEventManager : MonoBehaviour
 {
     static ChannelHandler currentChannelHandler;
+    
     public static ChannelHandler GetCurrentChannelHandler()
     {
         return currentChannelHandler;
     }
+    static ChannelHandler[] channelHandlers;
+    void Awake()
+    {
+        channelHandlers = new ChannelHandler[Enum.GetValues(typeof(ChannelType)).Length];
+    }
     public static Action<string> OnChannelClicked; // channelName
     public static Action<ChannelHandler> OnChannelClickedCallback; // channelHandler
-    public static Action OnNewChannelClicked;
+    public static Action<string> OnNewChannelClicked;
 
     void HandleChannelClicked(string channelName)
     {
@@ -25,10 +31,33 @@ public class ChannelEventManager : MonoBehaviour
             Debug.Log("Channel clicked is the same as the current channel handler: " + channelHandler.channelName);
             return;
         }
+        
         currentChannelHandler = channelHandler;
+        channelHandlers[(int)channelHandler.channelType] = channelHandler;
         currentChannelHandler.OnChannelOpenedHandler();
-        OnNewChannelClicked?.Invoke();
+        OnNewChannelClicked?.Invoke(currentChannelHandler.channelName);
     }
+
+    public static void RegisterChannelHandler(ChannelType channelType, ChannelHandler channelHandler)
+    {
+        Debug.Log("Registering channel handler for channel type: " + channelType + ", channel name: " + channelHandler.channelName);
+        channelHandlers[(int)channelType] = channelHandler;
+    }
+    public static Action<ChannelType> OnChannelTypeClicked; // channelType
+
+    void HandleChannelTypeClicked(ChannelType channelType)
+    {
+        ChannelHandler channelHandler = channelHandlers[(int)channelType];
+        if(channelHandler != null)
+        {
+            OnChannelClicked?.Invoke(channelHandler.channelName);
+        }
+        else
+        {
+            Debug.LogError("No channel handler registered for channel type: " + channelType);
+        }
+    }
+
 
     public static Action<string> TriggerDialogEvent; // inkName
     public static Action<string, InkFile> OnDialogTriggered; // channelName, inkFile
@@ -99,6 +128,8 @@ public class ChannelEventManager : MonoBehaviour
 
         OnNewMessageReceived += OnNewMessageReceivedHandler;
         UpdateChannelNotifications += UpdateChannelNotificationsHandler;
+
+        OnChannelTypeClicked += HandleChannelTypeClicked;
     }
 
     void OnDisable()
@@ -110,5 +141,7 @@ public class ChannelEventManager : MonoBehaviour
 
         OnNewMessageReceived -= OnNewMessageReceivedHandler;
         UpdateChannelNotifications -= UpdateChannelNotificationsHandler;
+
+        OnChannelTypeClicked -= HandleChannelTypeClicked;
     }
 }

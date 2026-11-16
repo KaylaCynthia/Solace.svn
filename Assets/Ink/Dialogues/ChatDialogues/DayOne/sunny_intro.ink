@@ -1,3 +1,4 @@
+#ForceFocus
 +hi, is this 12_sunny from Reddnet #speaker:Player
 +[(say nothing)] 
 //+Testing a very long message that might make the thinggy go lower and im not sure if my implentation can work for the choice boxes to automaticaly expand itself but i think it wont work anyways cuz the buttons need to report its own size for this to work

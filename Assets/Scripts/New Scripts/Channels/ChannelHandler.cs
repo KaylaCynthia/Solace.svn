@@ -8,10 +8,16 @@ using System.Collections.Generic;
 using TMPro;
 using DG.Tweening;
 
+public enum ChannelType
+{
+    DMs,
+    Server
+}
 public class ChannelHandler : MonoBehaviour
 {
     [Header("Channel Data")]
     public string channelName;
+    public ChannelType channelType;
     public bool isActive;
     public bool isWaitingForResponse;
 
@@ -121,6 +127,10 @@ public class ChannelHandler : MonoBehaviour
 
             if(currentStory.currentTags.Count > 0)
             {
+                if (currentStory.currentTags.Contains("ForceFocus"))
+                {
+                    ChannelEventManager.OnChannelClicked?.Invoke(channelName);
+                }
                 if(currentStory.currentTags.Exists(tag => tag.StartsWith("CallConversation")))
                 {
                     HandleCallConversationTag(currentStory.currentTags);
@@ -184,11 +194,7 @@ public class ChannelHandler : MonoBehaviour
         {
             ChoiceHandler.TriggerShowChoices?.Invoke(currentStory.currentChoices);
         }
-        else
-        {
-            Debug.Log("No choices available, ending conversation.");
-            // End of conversation
-        }
+
     }
 
     void ChooseChoice(int choiceIndex)
@@ -234,10 +240,12 @@ public class ChannelHandler : MonoBehaviour
         ChannelEventManager.UpdateBubbleNotification?.Invoke();
     }
 
-    private float typingTimePerCharacter = 0.1f; // Default typing time per character
+    private float typingTimePerCharacter = 0.08f; // Default typing time per character
     float GetTypingTime(string text, List<string> tags)
     {
         float typingTime = 2f; // Default typing time
+        float speedMultiplier = TextSpeedManager.GetSpeedMultiplier();
+        
 
         if(currentStory.currentTags.Exists(tag => tag.StartsWith("Speed")))
         {
@@ -250,7 +258,8 @@ public class ChannelHandler : MonoBehaviour
         }
         else
         {
-            typingTime = typingTimePerCharacter * text.Length;
+            typingTime = (typingTimePerCharacter/speedMultiplier) * text.Length;
+            // Debug.Log($"{typingTimePerCharacter} with multiplier {speedMultiplier} for text length {text.Length} gives typing time: {typingTime}");
         }
 
         return typingTime;
