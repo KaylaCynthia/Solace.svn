@@ -23,6 +23,10 @@ public class ChannelHandler : MonoBehaviour
 
     [Header("Channel UI")]
     [SerializeField] private Button channelButton;
+    public Button GetChannelButton()
+    {
+        return channelButton;
+    }
     [SerializeField] private TMP_Text channelText;
     Color originalTextColor;
 
@@ -55,11 +59,14 @@ public class ChannelHandler : MonoBehaviour
     {
         ChannelEventManager.OnChannelClicked += HandleChannelClickedCallback;
         ChannelEventManager.OnDialogTriggered += HandleDialogTriggered;
+        ServerChannelManager.UnlockChannel += HandleUnlockChannel;
     }
 
     void OnDisable()
     {
         ChannelEventManager.OnChannelClicked -= HandleChannelClickedCallback;
+        ChannelEventManager.OnDialogTriggered -= HandleDialogTriggered;
+        ServerChannelManager.UnlockChannel -= HandleUnlockChannel;
     }
 
     void HandleDialogTriggered(string channelName, InkFile inkFile)
@@ -82,6 +89,15 @@ public class ChannelHandler : MonoBehaviour
     {
         CheckWaitingForResponse();
         OnChannelOpened?.Invoke();
+    }
+
+    public void HandleUnlockChannel(string unlockedChannelName)
+    {
+        if (unlockedChannelName == channelName)
+        {
+            // Trigger the callback to notify that this channel has been unlocked
+            ServerChannelManager.UnlockChannelCallback?.Invoke(this);
+        }
     }
 
     public void TriggerTryShowChoicesHandler(string channelName)
@@ -118,7 +134,7 @@ public class ChannelHandler : MonoBehaviour
         if (currentStory.canContinue)
         {
             string text = currentStory.Continue();
-            if(string.IsNullOrWhiteSpace(text) && currentStory.currentTags.Count == 0)
+            if((string.IsNullOrWhiteSpace(text) || text == "\n") && currentStory.currentTags.Count == 0)
             {
                 Debug.Log("Empty text, continuing...");
                 NextLine();
@@ -131,13 +147,14 @@ public class ChannelHandler : MonoBehaviour
                 {
                     ChannelEventManager.OnChannelClicked?.Invoke(channelName);
                 }
+
                 if(currentStory.currentTags.Exists(tag => tag.StartsWith("CallConversation")))
                 {
                     HandleCallConversationTag(currentStory.currentTags);
                 }
             }
             
-            if(!string.IsNullOrWhiteSpace(text))
+            if(!string.IsNullOrWhiteSpace(text) && text != "\n")
             {
                 float typingTime = isInstant ? 0f : GetTypingTime(text, currentStory.currentTags);
 

@@ -53,6 +53,18 @@ public class ChannelDialogPlayer : MonoBehaviour
             }
         }
 
+        if (tags.Contains("SendServerInvite"))
+        {
+            if(currentDialog != null)
+            {
+                currentDialog.GetComponent<DialogBoxScript>().ShowServerInvite();
+            }
+            else
+            {
+                Debug.LogError("Cannot show server invite because there is no current dialog.");
+            }
+        }
+
         string GetMessageName(List<string> tags)
         {
             return tags.FirstOrDefault(tag => tag.StartsWith("speaker:"))?.Split(':')[1].Trim() ?? "Unknown";

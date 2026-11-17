@@ -81,5 +81,7 @@ i can send you the link if you want, no pressure tho
     still... i think you'd like it
     
 -i'll sent you the link later tonight once i got the permission #speaker:Sunny
-just think about it first
+nvm here i got it
+\\n #SendServerInvite
+feel free to join whenever you're comfortable #speaker:Sunny
 ->END

@@ -7,6 +7,7 @@ public class DialogBoxScript : MonoBehaviour
     [SerializeField] private Image portraitImage;
     [SerializeField] private TMP_Text nameText;
     [SerializeField] private TMP_Text dialogText;
+    [SerializeField] GameObject serverInvitePrefab;
     public void SetText(string name, string dialog)
     {
         nameText.text = name;
@@ -23,6 +24,19 @@ public class DialogBoxScript : MonoBehaviour
     {
         dialogText.text += dialog;
         RebuildLayout();
+    }
+
+    public void ShowServerInvite()
+    {
+        if (serverInvitePrefab != null)
+        {
+            GameObject invite = Instantiate(serverInvitePrefab, transform);
+            RebuildLayout();
+        }
+        else
+        {
+            Debug.LogError("Server invite prefab is not assigned.");
+        }
     }
 
     void RebuildLayout()
