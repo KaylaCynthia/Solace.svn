@@ -22,6 +22,7 @@ public class ServerChannelManager : MonoBehaviour
 
     public static void TriggerUnlockChannel(string channelName)
     {
+        Debug.Log("Triggering UnlockChannel for: " + channelName);
         UnlockChannel?.Invoke(channelName);
     }
 
@@ -31,6 +32,7 @@ public class ServerChannelManager : MonoBehaviour
         if (channelButton != null)
         {
             channelButton.gameObject.SetActive(true);
+            channelButton.transform.parent.gameObject.SetActive(true);
         }
     }
 

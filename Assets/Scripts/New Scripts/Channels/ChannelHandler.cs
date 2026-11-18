@@ -27,7 +27,7 @@ public class ChannelHandler : MonoBehaviour
     {
         return channelButton;
     }
-    [SerializeField] private TMP_Text channelText;
+    private TMP_Text channelText;
     Color originalTextColor;
 
     [Header("Channel Events")]
@@ -48,6 +48,7 @@ public class ChannelHandler : MonoBehaviour
     void Awake()
     {
         channelButton.onClick.AddListener(ButtonClicked);
+        channelText = channelButton.transform.GetComponentInChildren<TMP_Text>();
         originalTextColor = channelText.color;
     }
     void ButtonClicked()
@@ -152,6 +153,14 @@ public class ChannelHandler : MonoBehaviour
                 {
                     HandleCallConversationTag(currentStory.currentTags);
                 }
+
+                if(currentStory.currentTags.Exists(tag => tag.StartsWith("UnlockChannel")))
+                {
+                    string unlockChannelTag = currentStory.currentTags.Find(tag => tag.StartsWith("UnlockChannel"));
+                    string channelToUnlock = unlockChannelTag.Split(':')[1].Trim();
+                    ServerChannelManager.TriggerUnlockChannel(channelToUnlock);
+                }
+                
             }
             
             if(!string.IsNullOrWhiteSpace(text) && text != "\n")
