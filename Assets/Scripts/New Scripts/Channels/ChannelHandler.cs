@@ -39,7 +39,8 @@ public class ChannelHandler : MonoBehaviour
     #region Temp Test
     [SerializeField] private InkFile testInkFile;
 
-    void Start()
+    [ContextMenu("Start Conversation")]
+    void StartSunnyChat()
     {
         StartConversation(testInkFile);
     }
@@ -60,14 +61,14 @@ public class ChannelHandler : MonoBehaviour
     {
         ChannelEventManager.OnChannelClicked += HandleChannelClickedCallback;
         ChannelEventManager.OnDialogTriggered += HandleDialogTriggered;
-        ServerChannelManager.UnlockChannel += HandleUnlockChannel;
+        ChatListManager.UnlockChannel += HandleUnlockChannel;
     }
 
     void OnDisable()
     {
         ChannelEventManager.OnChannelClicked -= HandleChannelClickedCallback;
         ChannelEventManager.OnDialogTriggered -= HandleDialogTriggered;
-        ServerChannelManager.UnlockChannel -= HandleUnlockChannel;
+        ChatListManager.UnlockChannel -= HandleUnlockChannel;
     }
 
     void HandleDialogTriggered(string channelName, InkFile inkFile)
@@ -84,11 +85,20 @@ public class ChannelHandler : MonoBehaviour
         {
             // Return the channel handler to the event manager so it can be set as the current channel handler
             ChannelEventManager.OnChannelClickedCallback?.Invoke(this);
+            channelButton.GetComponent<ChatAreaScript>().SetChatAreaSelected(true);
+        }
+        else
+        {
+            // Reset the chat area selection for this channel
+            channelButton.GetComponent<ChatAreaScript>().SetChatAreaSelected(false);
         }
     }
     public void OnChannelOpenedHandler()
     {
         CheckWaitingForResponse();
+
+        // Set channel button as active
+        channelButton.GetComponent<ChatAreaScript>().SetChatAreaSelected(true);
         OnChannelOpened?.Invoke();
     }
 
@@ -97,7 +107,7 @@ public class ChannelHandler : MonoBehaviour
         if (unlockedChannelName == channelName)
         {
             // Trigger the callback to notify that this channel has been unlocked
-            ServerChannelManager.UnlockChannelCallback?.Invoke(this);
+            ChatListManager.UnlockChannelCallback?.Invoke(this);
         }
     }
 
@@ -125,6 +135,11 @@ public class ChannelHandler : MonoBehaviour
             Debug.LogError("Conversation Ink file is null for channel: " + channelName);
             return;
         }
+
+        // Enable chat button incase it was locked/hidden/disabled before
+        channelButton.gameObject.SetActive(true);
+        channelButton.transform.parent.gameObject.SetActive(true);
+
         isActive = true;
         currentStory = new Story(conversationInk.storyJson);
         NextLine();
@@ -146,6 +161,7 @@ public class ChannelHandler : MonoBehaviour
             {
                 if (currentStory.currentTags.Contains("ForceFocus"))
                 {
+                    ChannelEventManager.OnChannelTypeClicked?.Invoke(channelType);
                     ChannelEventManager.OnChannelClicked?.Invoke(channelName);
                 }
 
@@ -158,7 +174,7 @@ public class ChannelHandler : MonoBehaviour
                 {
                     string unlockChannelTag = currentStory.currentTags.Find(tag => tag.StartsWith("UnlockChannel"));
                     string channelToUnlock = unlockChannelTag.Split(':')[1].Trim();
-                    ServerChannelManager.TriggerUnlockChannel(channelToUnlock);
+                    ChatListManager.TriggerUnlockChannel(channelToUnlock);
                 }
                 
             }
@@ -248,22 +264,34 @@ public class ChannelHandler : MonoBehaviour
         {
             isWaitingForResponse = false;
             ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
+            
             return;
         }
 
         if (currentStory.currentChoices.Count > 0)
         {
             isWaitingForResponse = true;
-            channelText.color = Color.red; // Change text color to red to indicate waiting for response
+            SetChannelNotification(true); // Show notification when waiting for response
             ChannelEventManager.OnChannelWaitingForResponse?.Invoke(channelName);
         }
         else
         {
             isWaitingForResponse = false;
-            channelText.color = originalTextColor; // Reset text color to original
             ChannelEventManager.OnChannelNotWaitingForResponse?.Invoke();
         }
         ChannelEventManager.UpdateBubbleNotification?.Invoke();
+    }
+
+    public void SetChannelNotification(bool hasNewMessage)
+    {
+        if(hasNewMessage)
+        {
+            channelText.color = Color.red; // Change text color to red to indicate new message
+        }
+        else
+        {
+            channelText.color = originalTextColor; // Reset text color to original
+        }
     }
 
     private float typingTimePerCharacter = 0.08f; // Default typing time per character

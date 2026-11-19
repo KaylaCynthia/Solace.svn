@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class TextSpeedManager : MonoBehaviour
 {
     static float textSpeed = 1.0f; // Default text speed multiplier
-    private static readonly float[] textSpeedOptions = { 1f, 2f, 4f}; // Available text speed options
+    private static readonly float[] textSpeedOptions = { 1f, 2f, 4f, 8f}; // Available text speed options
     private static readonly int textSpeedOptionCount = textSpeedOptions.Length; // Available text speed options
     static int currentSpeedIndex = 0;
 

@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: InkDatabase
   m_EditorClassIdentifier: Assembly-CSharp::InkDatabase
   inkFiles:
-  - {fileID: 6231892579173505729, guid: f0a4caeb9a9443f4496f191711d0b859, type: 3}
-  - {fileID: 6231892579173505729, guid: d7d24d05d33f3e14da1d8358618d1b52, type: 3}
+  - {fileID: 6231892579173505729, guid: f8acb6149e535aa498a705f3047af40c, type: 3}
+  - {fileID: 6231892579173505729, guid: 6d656443fc929c14496e209488de2b0c, type: 3}
+  - {fileID: 6231892579173505729, guid: 61720d5640eb73b418eca388c6f5d3da, type: 3}
+  - {fileID: 6231892579173505729, guid: 6529704e410dceb4d8e6fe3bdfc41197, type: 3}
+  - {fileID: 6231892579173505729, guid: 8d25a4c9cfcd82945a90477a010b882b, type: 3}

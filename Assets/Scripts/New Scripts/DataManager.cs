@@ -23,6 +23,7 @@ public class DataManager : MonoBehaviour
 
     public Sprite GetProfilePicture(string profileName)
     {
+        profileName = profileName.Trim(); // Remove any leading or trailing whitespace
         return profilePictureDatabase.GetProfilePicture(profileName);
     }
     

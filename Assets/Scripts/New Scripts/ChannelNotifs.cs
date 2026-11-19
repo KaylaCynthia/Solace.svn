@@ -22,7 +22,7 @@ public class ChannelNotifs : MonoBehaviour
     void OnDisable()
     {
         ChannelEventManager.OnNewMessageReceived -= OnNewMessageReceived;
-        ChannelEventManager.UpdateBubbleNotification -= UpdateBubbleNotification;
+        ChannelEventManager.UpdateBubbleNotification -= UpdateNotification;
         ChannelEventManager.OnChannelClickedCallback -= OnChatAreaViewed;
     }
 
@@ -49,16 +49,19 @@ public class ChannelNotifs : MonoBehaviour
                 // If the channel that received a new message is not the current channel, we want to show a notification
                 hasNewMessage = true;
             }
+            UpdateNotification();
         }
     }
 
-    void UpdateBubbleNotification()
+    void UpdateNotification()
     {
         // Force check if the channel is waiting for a response, if so, we want to show the notification
         if(channelHandler.isWaitingForResponse)
         {
             hasNewMessage = true;
         }
+        channelHandler.SetChannelNotification(hasNewMessage);
+        ChannelEventManager.UpdateBubbleNotification?.Invoke();
     }
 
     void OnChatAreaViewed(ChannelHandler channelHandler)
@@ -69,7 +72,7 @@ public class ChannelNotifs : MonoBehaviour
             {
                 // If channel is not active, we can remove the notification
                 hasNewMessage = false;
-                ChannelEventManager.UpdateBubbleNotification?.Invoke();
+                UpdateNotification();
             }
         }
     }

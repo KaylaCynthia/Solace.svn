@@ -57,9 +57,6 @@ public class ChannelEventManager : MonoBehaviour
             Debug.LogError("No channel handler registered for channel type: " + channelType);
         }
     }
-
-
-    public static Action<string> TriggerDialogEvent; // inkName
     public static Action<string, InkFile> OnDialogTriggered; // channelName, inkFile
     public static Action TryShowChoices; // Call only
 

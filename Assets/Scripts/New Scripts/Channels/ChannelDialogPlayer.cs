@@ -16,7 +16,7 @@ public class ChannelDialogPlayer : MonoBehaviour
     public void CreateNewMessage(string text, List<string> tags)
     {
         // Debug.Log("Creating new message, tags: " + string.Join(",", tags?.ToArray() ?? new string[0]));
-        bool hasSpeakerTag = tags.Find(tag => tag.StartsWith("speaker")) != null;
+        bool hasSpeakerTag = tags.Find(tag => tag.StartsWith("Speaker")) != null;
         if(currentDialog == null && !hasSpeakerTag)
         {
             Debug.LogError("No previous textbox and no portrait");
@@ -31,10 +31,10 @@ public class ChannelDialogPlayer : MonoBehaviour
             currentSpeaker = GetMessageName(tags);
             currentDialog.GetComponent<DialogBoxScript>().SetText(currentSpeaker, text);
 
-            bool hasPortraitTag = tags.Find(tag => tag.StartsWith("portrait")) != null;
+            bool hasPortraitTag = tags.Find(tag => tag.StartsWith("Portrait")) != null;
             if(hasPortraitTag)
             {
-                string portraitName = tags.Find(tag => tag.StartsWith("portrait")).Split(':')[1].Trim();
+                string portraitName = tags.Find(tag => tag.StartsWith("Portrait")).Split(':')[1].Trim();
                 currentDialog.GetComponent<DialogBoxScript>().SetPortrait(portraitName);
             }
             Debug.Log("New dialog created: " + text);
@@ -67,7 +67,7 @@ public class ChannelDialogPlayer : MonoBehaviour
 
         string GetMessageName(List<string> tags)
         {
-            return tags.FirstOrDefault(tag => tag.StartsWith("speaker:"))?.Split(':')[1].Trim() ?? "Unknown";
+            return tags.FirstOrDefault(tag => tag.StartsWith("Speaker:"))?.Split(':')[1].Trim() ?? "Unknown";
         }
     }
 }

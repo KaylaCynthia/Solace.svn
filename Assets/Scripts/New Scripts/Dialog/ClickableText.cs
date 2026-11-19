@@ -31,6 +31,11 @@ public class ClickableText : MonoBehaviour,IPointerClickHandler, IPointerEnterHa
     void OnEnable()
     {
         text = GetComponent<TMP_Text>();
+        if (string.IsNullOrEmpty(originalText))
+        {
+            originalText = text.text;
+            SetText(originalText); // Initialize the text with proper formatting
+        }
     }
     
     public void SetText(string newText)
@@ -103,7 +108,7 @@ public class ClickableText : MonoBehaviour,IPointerClickHandler, IPointerEnterHa
             string closeTag = match.Groups[4].Value;
 
             bool isThisHovered = linkID == hoveredLinkID;
-            bool isChannel = linkID.StartsWith("channel");
+            bool isChannel = linkID.StartsWith("Server");
 
             if (isChannel)
             {
@@ -139,9 +144,16 @@ public class ClickableText : MonoBehaviour,IPointerClickHandler, IPointerEnterHa
 
             Debug.Log($"Clicked link ID: {linkID}");
             
-            if (linkID.StartsWith("channel") || linkID.Contains("channel"))
+            if (linkID.StartsWith("Server"))
             {
                 // Handle channel click logic here
+                ChannelEventManager.OnChannelTypeClicked?.Invoke(ChannelType.Server);
+                ChannelEventManager.OnChannelClicked?.Invoke(linkID);
+            }else if(linkID.StartsWith("DM"))
+            {
+                // Handle DM click logic here
+                ChannelEventManager.OnChannelTypeClicked?.Invoke(ChannelType.DMs);
+                ChannelEventManager.OnChannelClicked?.Invoke(linkID);
             }
             else
             {

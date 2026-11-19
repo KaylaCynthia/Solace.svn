@@ -20,6 +20,7 @@ public class ServerInviteScript : MonoBehaviour
     void OnAcceptButtonClicked()
     {
         // Trigger the event to unlock the server
-        ServerChannelManager.UnlockServer?.Invoke();
+        ChatListManager.UnlockServer?.Invoke();
+        ChannelEventManager.OnChannelTypeClicked?.Invoke(ChannelType.Server);
     }
 }
